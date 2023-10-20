@@ -33,6 +33,6 @@ public class FenetreVaisseau extends FenetreTransparente
 		
 		this.setLayout( new OverlayLayout(this.getContentPane()) );
 		this.add( new PanelImage( Affichage.REP_IMAGES+"vaisseaux/"+"vaisseau1.png" ) );
-		this.add( new PanelImage( Affichage.REP_IMAGES+"objets"+"asteroide.png" ) );
+		this.add( new PanelImage( Affichage.REP_IMAGES+"objets/"+"asteroide.png" ) );
 	}
 }
