@@ -1,5 +1,10 @@
-src/vue/Affichage.java
-src/vue/FenetreTransparente.java
-src/vue/FenetreVaisseau.java
-src/vue/PanelImage.java
-src/Controleur.java
+src/Constantes.java
+
+src/modele/entite/AbstractEntite.java
+src/modele/entite/Asteroide.java
+src/modele/entite/Entite.java
+src/modele/entite/IAttaque.java
+src/modele/entite/IDeplacable.java
+src/modele/entite/IDestructible.java
+src/modele/entite/IInteraction.java
+src/modele/entite/Vaisseau.java
