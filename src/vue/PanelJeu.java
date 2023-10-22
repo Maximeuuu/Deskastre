@@ -68,6 +68,8 @@ public class PanelJeu extends JPanel implements MouseListener
 			System.out.println(nom);
 		}
 
+		this.ctrl.zoneCliquee( e.getPoint() );
+
 		/*if( this.p1.contains( e.getPoint() ) )
 		{
 			System.out.println("vaisseau1");
