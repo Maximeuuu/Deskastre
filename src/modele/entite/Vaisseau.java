@@ -2,6 +2,7 @@ package deskastre.modele.entite;
 
 import java.awt.Polygon;
 import java.awt.Point;
+import java.awt.Dimension;
 
 public class Vaisseau extends Entite implements IAttaque, IDeplacable, IInteraction
 {
@@ -12,9 +13,14 @@ public class Vaisseau extends Entite implements IAttaque, IDeplacable, IInteract
 
 	Entite bouclier;
 
-	public Vaisseau()
+	public Vaisseau(  Point position, Dimension dimension, String image, int degat )
 	{
+		super( position, dimension, image );
 
+		this.degat = degat;
+		this.velociteX = 0;
+		this.velociteY = 0;
+		this.masque = OutilsImage.getMasqueImage( super.getImage(), super.getLocation() );
 	}
 
 	public int getPuissanceAttaque(){ return this.degat; }
@@ -26,7 +32,4 @@ public class Vaisseau extends Entite implements IAttaque, IDeplacable, IInteract
 	public void deplacer( int x, int y ){ super.x = x; super.y = y; }
 
 	public boolean estSelectionne( Point p ){ return masque.contains( p ); }
-
-
-
 }

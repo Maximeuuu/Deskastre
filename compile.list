@@ -1,4 +1,7 @@
 src/Constantes.java
+src/Controleur.java
+
+src/modele/Jeu.java
 
 src/modele/entite/AbstractEntite.java
 src/modele/entite/Asteroide.java
@@ -7,4 +10,8 @@ src/modele/entite/IAttaque.java
 src/modele/entite/IDeplacable.java
 src/modele/entite/IDestructible.java
 src/modele/entite/IInteraction.java
+src/modele/entite/OutilsImage.java
 src/modele/entite/Vaisseau.java
+
+src/vue/FenetreJeu.java
+src/vue/PanelJeu.java
