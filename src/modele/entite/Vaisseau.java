@@ -4,7 +4,7 @@ import java.awt.Polygon;
 import java.awt.Point;
 import java.awt.Dimension;
 
-public class Vaisseau extends Entite implements IAttaque, IDeplacable, IInteraction
+public class Vaisseau extends Entite implements IAttaque, IInteraction
 {
 	int degat;
 	int velociteX;
@@ -20,16 +20,16 @@ public class Vaisseau extends Entite implements IAttaque, IDeplacable, IInteract
 		this.degat = degat;
 		this.velociteX = 0;
 		this.velociteY = 0;
-		this.masque = OutilsImage.getMasqueImage( super.getImage(), super.getLocation() );
+		this.masque = OutilsImage.getMasqueImage( super.getImage() );
 	}
 
 	public int getPuissanceAttaque(){ return this.degat; }
 	public void setPuissanceAttaque( int degat ){ this.degat = degat; }
 
-	public int getVelociteX(){ return this.velociteX; }
+	/*public int getVelociteX(){ return this.velociteX; }
 	public int getVelociteY(){ return this.velociteY; }
 	public void arreter(){ this.velociteX=0; this.velociteY=0; }
-	public void deplacer( int x, int y ){ super.x = x; super.y = y; }
+	public void deplacer( int x, int y ){ super.x = x; super.y = y; }*/
 
 	public boolean estSelectionne( Point p ){ return masque.contains( p ); }
 }

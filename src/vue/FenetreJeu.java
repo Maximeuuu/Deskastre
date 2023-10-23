@@ -8,7 +8,7 @@ import java.awt.Color;
 
 public class FenetreJeu extends JFrame
 {
-	private JPanel panel;
+	private PanelJeu panel;
 	private int largeur;
 	private int hauteur;
 	private Controleur ctrl;

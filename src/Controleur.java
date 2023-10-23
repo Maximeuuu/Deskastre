@@ -5,17 +5,35 @@ import deskastre.vue.*;
 import deskastre.modele.*;
 
 import java.awt.Point;
+import javax.swing.SwingUtilities;
 import java.util.List;
+
+//Timer
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Controleur
 {
 	private Jeu metier;
 	private FenetreJeu ihm;
+	private Timer timer;
 
 	public Controleur()
 	{
 		this.metier = new Jeu();
 		this.ihm = new FenetreJeu( this );
+		this.timer = new Timer();
+		
+		timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                // Réactualiser le modèle
+				Controleur.this.metier.actualiser();
+
+                // Réactualiser l'IHM
+                Controleur.this.ihm.repaint();
+            }
+        }, 0, 100);
 	}
 
 	public List<Entite> getEnsEntite()
@@ -30,13 +48,18 @@ public class Controleur
 
 	public void zoneCliquee( Point point )
 	{
-		//if entite selectionne
-		//-> if entite instanceof asteroide
-		//	-> this.metier.detruire( (asteroide)entite.detruire() ); // =ou tout ça direct dans le metier
+		if( this.metier.zoneCliquee( point ) )
+		{
+			//System.out.println("repaint");
+			this.ihm.repaint();
+		}
 	}
 
 	public static void main( String[] args )
 	{
-		new Controleur();
+		SwingUtilities.invokeLater(() -> 
+		{
+			new Controleur();
+		});
 	}
 }

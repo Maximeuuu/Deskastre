@@ -49,6 +49,7 @@ public class PanelJeu extends JPanel implements MouseListener
 		/*g2.drawImage( this.image1.getImage(), 10,10, this);
 		g2.drawImage( this.image2.getImage(), 300,300, this);*/
 
+		//System.out.println("repaintG2 " + ensEntite.size() );
 
 		g2.dispose();
 	}
@@ -60,24 +61,7 @@ public class PanelJeu extends JPanel implements MouseListener
 	public void mouseClicked(MouseEvent e)
 	{
 		System.out.println( "clic" );
-
-		String nom = this.ctrl.getNomEntite( e.getPoint() );
-
-		if( nom != null )
-		{
-			System.out.println(nom);
-		}
-
+		
 		this.ctrl.zoneCliquee( e.getPoint() );
-
-		/*if( this.p1.contains( e.getPoint() ) )
-		{
-			System.out.println("vaisseau1");
-		}
-
-		if( this.p2.contains( e.getPoint() ) )
-		{
-			System.out.println("asteroide");
-		}*/
 	}
 }
