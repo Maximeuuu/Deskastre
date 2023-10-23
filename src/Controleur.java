@@ -23,7 +23,7 @@ public class Controleur
 		this.metier = new Jeu();
 		this.ihm = new FenetreJeu( this );
 		this.timer = new Timer();
-		
+
 		timer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -33,7 +33,7 @@ public class Controleur
                 // Réactualiser l'IHM
                 Controleur.this.ihm.repaint();
             }
-        }, 0, 100);
+        }, 0, Constantes.TEMPS);
 	}
 
 	public List<Entite> getEnsEntite()
@@ -57,7 +57,7 @@ public class Controleur
 
 	public static void main( String[] args )
 	{
-		SwingUtilities.invokeLater(() -> 
+		SwingUtilities.invokeLater(() ->
 		{
 			new Controleur();
 		});

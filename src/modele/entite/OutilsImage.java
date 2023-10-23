@@ -26,7 +26,7 @@ public final class OutilsImage
 		}
 	}
 
-	public static Polygon getMasqueImage( ImageIcon icone )
+	public static Polygon getMasqueImage( ImageIcon icone, int posX, int posY )
 	{
 		// Reset du polygone de l'image
 		Polygon polygone = new Polygon();
@@ -43,9 +43,9 @@ public final class OutilsImage
 		{
 			for (int x = bImage.getWidth() - 1; x >= 0; x--)
 			{
-				if ( bImage.getRGB( (int)(x), (int)(y) ) != 0 )
+				if ( bImage.getRGB( x, y ) != 0 )
 				{
-					polygone.addPoint( (int)(x), (int)(y) );
+					polygone.addPoint( x+posX, y+posY );
 					break;
 				}
 			}
@@ -55,9 +55,9 @@ public final class OutilsImage
 		{
 			for (int x = 0; x < bImage.getWidth(); x++)
 			{
-				if ( bImage.getRGB( (int)(x), (int)(y) ) != 0 )
+				if ( bImage.getRGB( x, y ) != 0 )
 				{
-					polygone.addPoint( (int)(x), (int)(y) );
+					polygone.addPoint( x+posX, y+posY );
 					break;
 				}
 			}

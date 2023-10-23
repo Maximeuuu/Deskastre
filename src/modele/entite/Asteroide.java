@@ -1,13 +1,15 @@
 package deskastre.modele.entite;
 
+import deskastre.Constantes;
+
 import java.awt.Polygon;
 import java.awt.Point;
 import java.awt.Dimension;
 
 public class Asteroide extends Entite implements IDeplacable, IInteraction, IDestructible
 {
-	int velociteX;
-	int velociteY;
+	double velociteX;
+	double velociteY;
 	Polygon masque;
 	int pvActuel;
 	int pvMax;
@@ -16,24 +18,27 @@ public class Asteroide extends Entite implements IDeplacable, IInteraction, IDes
 	{
 		super( position, dimension, image );
 
-		this.velociteX = 0;
+		this.velociteX = -1.0;
 		this.velociteY = 0;
-		this.masque = OutilsImage.getMasqueImage( super.getImage() );
+		this.masque = OutilsImage.getMasqueImage( super.getImage(), (int)(super.getX()), (int)(super.getY()) );
 		this.pvMax = 1;
 		this.pvActuel = this.pvMax;
 	}
 
-	public int getVelociteX(){ return this.velociteX; }
-	public int getVelociteY(){ return this.velociteY; }
 	public void arreter(){ this.velociteX=0; this.velociteY=0; }
-	public void deplacer( int x, int y ){ super.x = x; super.y = y; }
+	public void avancer()
+	{
+		super.x += (int)(this.velociteX*Constantes.TEMPS/10);
+		super.y += (int)(this.velociteY*Constantes.TEMPS/10);
+		this.masque.translate( (int)(this.velociteX*Constantes.TEMPS/10), (int)(this.velociteY*Constantes.TEMPS/10) );
+	}
+	public void setVelocite( double vx, double vy ){ this.velociteX = vx; this.velociteY = vy; }
 
 	public boolean estSelectionne( Point p )
 	{
-		p.translate( (int)(-super.getX()), (int)(-super.getY()) );
-		return masque.contains( p );
+		return this.masque.contains( p );
 	}
-	
+
 	public boolean perdrePv()
 	{
 		if( this.pvActuel <= 0 )
