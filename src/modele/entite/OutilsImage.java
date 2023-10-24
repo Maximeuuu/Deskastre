@@ -9,6 +9,10 @@ import java.io.IOException;
 import java.io.File;
 import java.awt.image.BufferedImage;
 
+/**
+ * Classe utilitaire permettant de traiter des images
+ * @autor : Maximeuuu, ChatGPT
+ */
 public final class OutilsImage
 {
 	/**

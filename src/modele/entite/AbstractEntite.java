@@ -3,6 +3,10 @@ package deskastre.modele.entite;
 import java.awt.Point;
 import java.awt.Dimension;
 
+/**
+ * Classe principale pour une entite du jeu
+ * @autor : Maximeuuu
+ */
 public abstract class AbstractEntite extends Point
 {
 	private Dimension dimension;

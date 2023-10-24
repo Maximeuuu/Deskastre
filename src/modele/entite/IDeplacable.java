@@ -1,5 +1,9 @@
 package deskastre.modele.entite;
 
+/**
+ * Objet pouvant etre deplace
+ * @autor : Maximeuuu
+ */
 public interface IDeplacable
 {
 	//public int getVelociteX();

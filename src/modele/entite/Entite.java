@@ -6,6 +6,10 @@ import java.awt.Point;
 import java.awt.Dimension;
 import java.awt.Image;
 
+/**
+ * Objet simple du jeu
+ * @autor : Maximeuuu
+ */
 public class Entite extends AbstractEntite
 {
 	public static final int NORTH = 0;

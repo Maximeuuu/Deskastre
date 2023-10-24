@@ -6,6 +6,10 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.Color;
 
+/**
+ * Fenetre principale du jeu
+ * @autor : Maximeuuu
+ */
 public class FenetreJeu extends JFrame
 {
 	private PanelJeu panel;

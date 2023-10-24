@@ -1,5 +1,9 @@
 package deskastre.modele.entite;
 
+/**
+ * Objet pouvant se prendre des degats
+ * @autor : Maximeuuu
+ */
 public interface IDestructible
 {
 	/*public boolean getPvMax();

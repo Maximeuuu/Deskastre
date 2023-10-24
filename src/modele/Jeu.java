@@ -7,6 +7,10 @@ import java.util.Collections;
 import java.util.ArrayList;
 import java.awt.*;
 
+/**
+ * Classe principale qui genere une partie
+ * @autor : Maximeuuu
+ */
 public class Jeu
 {
 	private List<Entite> ensEntite;

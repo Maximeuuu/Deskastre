@@ -6,6 +6,10 @@ import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.Dimension;
 
+/**
+ * Entite Asteroide pouvant être recolté
+ * @autor : Maximeuuu
+ */
 public class Asteroide extends Entite implements IDeplacable, IInteraction, IDestructible
 {
 	private double velociteX;

@@ -11,6 +11,10 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
 
+/**
+ * Panel principal de jeu
+ * @autor : Maximeuuu
+ */
 public class PanelJeu extends JPanel implements MouseListener
 {
 	private Controleur ctrl;

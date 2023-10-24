@@ -4,6 +4,10 @@ import java.awt.Polygon;
 import java.awt.Point;
 import java.awt.Dimension;
 
+/**
+ * Entite correspondant au joueur
+ * @autor : Maximeuuu
+ */
 public class Vaisseau extends Entite implements IAttaque, IInteraction
 {
 	int degat;

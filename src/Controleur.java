@@ -12,6 +12,10 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Classe permettant la liaison entre le modele et la vue dans le modele MVC
+ * @autor : Maximeuuu
+ */
 public class Controleur
 {
 	private Jeu metier;
