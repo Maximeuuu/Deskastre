@@ -50,7 +50,6 @@ public class Controleur
 	{
 		if( this.metier.zoneCliquee( point ) )
 		{
-			//System.out.println("repaint");
 			this.ihm.repaint();
 		}
 	}

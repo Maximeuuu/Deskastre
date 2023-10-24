@@ -10,6 +10,7 @@ src/modele/entite/IAttaque.java
 src/modele/entite/IDeplacable.java
 src/modele/entite/IDestructible.java
 src/modele/entite/IInteraction.java
+
 src/modele/entite/OutilsImage.java
 src/modele/entite/Vaisseau.java
 

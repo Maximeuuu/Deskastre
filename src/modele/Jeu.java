@@ -25,6 +25,10 @@ public class Jeu
 		entite = new Asteroide( new Point(900,120), new Dimension(100,100), "objets/asteroide.png");
 		((Asteroide)entite).setVelocite(0,0);
 		this.ensEntite.add( entite );
+		
+		entite = new Asteroide( new Point(100,500), new Dimension(100,100), "objets/asteroide.png");
+		((Asteroide)entite).setVelocite(0,0);
+		this.ensEntite.add( entite );
 
 		entite = new Asteroide( new Point(1200,800), new Dimension(100,100), "objets/asteroide.png");
 		((Asteroide)entite).setVelocite(-1,-0.1); 
@@ -49,7 +53,7 @@ public class Jeu
 
 	public boolean zoneCliquee( Point point )
 	{
-		Entite entite = this.getEntite( point ); //return null ??
+		Entite entite = this.getEntite( point );
 
 		if( entite == null ){ System.out.println("entite null"); return false; }
 

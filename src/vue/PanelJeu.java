@@ -2,6 +2,7 @@ package deskastre.vue;
 
 import deskastre.Controleur;
 import deskastre.modele.entite.Entite;
+import deskastre.modele.entite.Asteroide; // a supprimer par la suite
 
 import java.util.List;
 
@@ -45,8 +46,6 @@ public class PanelJeu extends JPanel implements MouseListener
 	public void mouseReleased(MouseEvent e){}
 	public void mouseClicked(MouseEvent e)
 	{
-		System.out.println( "clic" );
-
 		this.ctrl.zoneCliquee( e.getPoint() );
 	}
 }
