@@ -5,7 +5,9 @@ import deskastre.modele.entite.*;
 import java.util.List;
 import java.util.Collections;
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList; //listes thread-safe
 import java.awt.*;
+import java.awt.geom.Point2D;
 
 /**
  * Classe principale qui genere une partie
@@ -17,25 +19,34 @@ public class Jeu
 
 	public Jeu()
 	{
-		this.ensEntite = new ArrayList<Entite>();
+		this.ensEntite = new CopyOnWriteArrayList<Entite>();
+
+		Point pTest = new Point(0,0);
+		System.out.println( pTest );
+		pTest.translate(-50,-50);
+		System.out.println( pTest );
 
 		Entite entite = new Vaisseau( new Point(100,100), new Dimension(700,500), "vaisseaux/vaisseau1.png", 5);
 		this.ensEntite.add( entite );
 
 		entite = new Asteroide( new Point(800,100), new Dimension(250,250), "objets/asteroide.png");
-		((Asteroide)entite).setVelocite(-1,0);
+		((Asteroide)entite).setVelocite(0,1);
+		this.ensEntite.add( entite );
+
+		entite = new Asteroide( new Point(-50,-50), new Dimension(100,100), "objets/asteroide.png");
+		((Asteroide)entite).setVelocite(0.5,0.5);
 		this.ensEntite.add( entite );
 
 		entite = new Asteroide( new Point(900,120), new Dimension(100,100), "objets/asteroide.png");
-		((Asteroide)entite).setVelocite(0,0);
+		((Asteroide)entite).setVelocite(-0.8,0);
 		this.ensEntite.add( entite );
-		
+
 		entite = new Asteroide( new Point(100,500), new Dimension(100,100), "objets/asteroide.png");
 		((Asteroide)entite).setVelocite(0,0);
 		this.ensEntite.add( entite );
 
 		entite = new Asteroide( new Point(1200,800), new Dimension(100,100), "objets/asteroide.png");
-		((Asteroide)entite).setVelocite(-1,-0.1); 
+		((Asteroide)entite).setVelocite(-0.5,-0.1);
 		this.ensEntite.add( entite );
 	}
 
@@ -46,6 +57,13 @@ public class Jeu
 			if( entite instanceof IDeplacable )
 			{
 				((IDeplacable)(entite)).avancer();
+				System.out.println( (Point2D)entite );
+
+				if( !entite.isVisibleOnScreen( new Dimension(1920,1080) ) )
+				{
+					System.out.println("Destruction d'une entite");
+					this.ensEntite.remove( entite );
+				}
 			}
 		}
 	}
