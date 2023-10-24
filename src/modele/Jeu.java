@@ -1,6 +1,7 @@
 package deskastre.modele;
 
 import deskastre.modele.entite.*;
+import deskastre.modele.joueur.*;
 
 import java.util.List;
 import java.util.Collections;
@@ -15,16 +16,15 @@ import java.awt.geom.Point2D;
  */
 public class Jeu
 {
-	private List<Entite> ensEntite;
+	private List<AbstractEntite> ensEntite;
+	private Statistique statsJoueur;
 
 	public Jeu()
 	{
-		this.ensEntite = new CopyOnWriteArrayList<Entite>();
+		this.ensEntite = new CopyOnWriteArrayList<AbstractEntite>();
 
-		Point pTest = new Point(0,0);
-		System.out.println( pTest );
-		pTest.translate(-50,-50);
-		System.out.println( pTest );
+		this.statsJoueur = new Statistique( new Point(0,0) );
+		this.ensEntite.add( statsJoueur );
 
 		Entite entite = new Vaisseau( new Point(100,100), new Dimension(700,500), "vaisseaux/vaisseau1.png", 5);
 		this.ensEntite.add( entite );
@@ -52,12 +52,12 @@ public class Jeu
 
 	public void actualiser()
 	{
-		for( Entite entite : this.ensEntite ) //penser à parcourir dans le sens inverse par la suite (parce que les images se superposent donc la dernière images doit être la première à pouvoir être selectionnée)
+		for( AbstractEntite entite : this.ensEntite ) //penser à parcourir dans le sens inverse par la suite (parce que les images se superposent donc la dernière images doit être la première à pouvoir être selectionnée)
 		{
 			if( entite instanceof IDeplacable )
 			{
 				((IDeplacable)(entite)).avancer();
-				System.out.println( (Point2D)entite );
+				//System.out.println( (Point2D)entite ); //DEBUG: afficher les coordonnees de chaque élements déplacés
 
 				if( !entite.isVisibleOnScreen( new Dimension(1920,1080) ) )
 				{
@@ -66,16 +66,17 @@ public class Jeu
 				}
 			}
 		}
+		this.statsJoueur.majDistance();
 	}
 
-	public List<Entite> getEnsEntite()
+	public List<AbstractEntite> getEnsEntite()
 	{
 		return this.ensEntite;
 	}
 
 	public boolean zoneCliquee( Point point )
 	{
-		Entite entite = this.getEntite( point );
+		AbstractEntite entite = this.getEntite( point );
 
 		if( entite == null ){ System.out.println("entite null"); return false; }
 
@@ -86,19 +87,20 @@ public class Jeu
 			if( ((IDestructible)entite).estDetruit() )
 			{
 				System.out.println("Destruction d'une entite");
+				this.statsJoueur.asteroideDetruit();
 				this.ensEntite.remove( entite );
 			}
 		}
 		return true;
 	}
 
-	public Entite getEntite( Point point )
+	public AbstractEntite getEntite( Point point )
 	{
-		List<Entite> copieEnsEntite = new ArrayList<>(this.ensEntite);
+		List<AbstractEntite> copieEnsEntite = new ArrayList<>(this.ensEntite);
 		Collections.reverse( copieEnsEntite );
 
 		//on parcourt dans le sens inverse pour que la premiere image selectionnee soit la derniere posee
-		for( Entite entite : copieEnsEntite  )
+		for( AbstractEntite entite : copieEnsEntite  )
 		{
 			if( entite instanceof IInteraction )
 			{
@@ -113,7 +115,7 @@ public class Jeu
 
 	public String getNomEntite( Point point )
 	{
-		Entite entite = this.getEntite( point );
+		AbstractEntite entite = this.getEntite( point );
 		if( entite == null ){ return ""; }
 		else{ return entite.getClass().getName(); }
 	}

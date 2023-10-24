@@ -40,7 +40,7 @@ public class Controleur
         }, 0, Constantes.TEMPS);
 	}
 
-	public List<Entite> getEnsEntite()
+	public List<AbstractEntite> getEnsEntite()
 	{
 		return this.metier.getEnsEntite();
 	}

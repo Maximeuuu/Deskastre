@@ -14,5 +14,7 @@ src/modele/entite/IInteraction.java
 src/modele/entite/OutilsImage.java
 src/modele/entite/Vaisseau.java
 
+src/modele/joueur/Statistique.java
+
 src/vue/FenetreJeu.java
 src/vue/PanelJeu.java

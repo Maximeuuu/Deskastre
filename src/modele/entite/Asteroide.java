@@ -8,7 +8,7 @@ import java.awt.Polygon;
 import java.awt.Dimension;
 
 /**
- * Entite Asteroide pouvant être recolté
+ * Entite Asteroide pouvant être récolté
  * @autor : Maximeuuu
  */
 public class Asteroide extends Entite implements IDeplacable, IInteraction, IDestructible
@@ -33,9 +33,7 @@ public class Asteroide extends Entite implements IDeplacable, IInteraction, IDes
 	public void arreter(){ this.velociteX=0; this.velociteY=0; }
 	public void avancer()
 	{
-		/*super.x -= 0.5;
-		super.y -= 1.5;*/
-		super.x += (this.velociteX*Constantes.TEMPS/10.0); //remplacer TEMPS par PAS_X et PAS_Y
+		super.x += (this.velociteX*Constantes.TEMPS/10.0); //remplacer TEMPS par PAS_X et PAS_Y ?
 		super.y += (this.velociteY*Constantes.TEMPS/10.0);
 	}
 	public void setVelocite( double vx, double vy ){ this.velociteX = vx; this.velociteY = vy; }

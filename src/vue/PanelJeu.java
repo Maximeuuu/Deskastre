@@ -2,7 +2,8 @@ package deskastre.vue;
 
 import deskastre.Controleur;
 import deskastre.modele.entite.Entite;
-import deskastre.modele.entite.Asteroide; // a supprimer par la suite
+import deskastre.modele.entite.AbstractEntite;
+import deskastre.modele.joueur.Statistique;
 
 import java.util.List;
 
@@ -35,10 +36,22 @@ public class PanelJeu extends JPanel implements MouseListener
 
 		Graphics2D g2 = (Graphics2D)g;
 
-		List<Entite> ensEntite = this.ctrl.getEnsEntite();
-		for( Entite entite : ensEntite )
+		List<AbstractEntite> ensElement = this.ctrl.getEnsEntite();
+		for( AbstractEntite element : ensElement )
 		{
-			g2.drawImage( entite.getImage().getImage(), (int)entite.getX(), (int)entite.getY(), this );
+			if( element instanceof Statistique ) //problème : impossible d'afficher le texte ?
+			{
+				System.out.println( ((Statistique)element).toString() );
+				g2.setColor(new Color(255, 255, 255)); // Arrière-plan semi-transparent
+				g2.fillRect(0,0, 100, 100); // Dessine un rectangle d'arrière-plan
+				g2.setColor(Color.BLACK); // Couleur du texte
+				g2.drawString( ((Statistique)element).toString(), (int)element.getX(), (int)element.getY() );
+			}
+
+			if( element instanceof Entite )
+			{
+				g2.drawImage( ((Entite)(element)).getImage().getImage(), (int)element.getX(), (int)element.getY(), this );
+			}
 		}
 
 		g2.dispose();
