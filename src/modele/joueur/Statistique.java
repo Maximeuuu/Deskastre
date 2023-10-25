@@ -4,6 +4,7 @@ import deskastre.modele.entite.AbstractEntite;
 import deskastre.Constantes;
 
 import java.awt.Point;
+import java.awt.Dimension;
 
 /**
  * Statistiques sur la partie en cours
@@ -19,7 +20,7 @@ public final class Statistique extends AbstractEntite
 
 	public Statistique( Point position )
 	{
-		super( position, null );
+		super( position, new Dimension(0,0) );
 		this.distance = 0.0;
 		this.vitesse = 5;
 		this.carburant = 20;
@@ -39,13 +40,28 @@ public final class Statistique extends AbstractEntite
 	public String toString()
 	{
 		String sRet = "Stats : \n" +
-        	" - distance : " + String.format("%.2f m", this.distance) +
-        	"\n - vitesse : " + String.format("%.2f m/s", this.vitesse) +
-        	"\n - carburant : " + String.format("%d litres", this.carburant) +
-        	"\n - metaux : " + String.format("%d asteroides", this.asteroide) +
-        	"\n - argent : " + String.format("%d €", this.argent);
+			" - distance : " + String.format("%.2f m", this.distance) +
+			"\n - vitesse : " + String.format("%.2f m/s", this.vitesse) +
+			"\n - carburant : " + String.format("%d litres", this.carburant) +
+			"\n - metaux : " + String.format("%d asteroides", this.asteroide) +
+			"\n - argent : " + String.format("%d €", this.argent);
 
-    	return sRet;
+		return sRet;
+	}
+	
+	public void majDimension() //ajouter des paramètres : TailleCaractere, adapter majDimension() et adapter PanelJeu.paintComponent()
+	{
+		int maxWidth=0;
+		int maxHeigth=0;
+		
+		String[] lignes = this.toString().split("\n");
+		for( String ligne : lignes )
+		{
+			if( ligne.length() > maxWidth ){ maxWidth = ligne.length(); }
+			maxHeigth++;
+		}
+		
+		super.setDimension( new Dimension(maxWidth, maxHeigth) );
 	}
 
 }

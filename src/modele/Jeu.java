@@ -65,6 +65,11 @@ public class Jeu
 					this.ensEntite.remove( entite );
 				}
 			}
+			
+			if( entite instanceof Statistique )
+			{
+				((Statistique)entite).majDimension();
+			}
 		}
 		this.statsJoueur.majDistance();
 	}

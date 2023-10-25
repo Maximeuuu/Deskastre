@@ -57,6 +57,11 @@ public class Controleur
 			this.ihm.repaint();
 		}
 	}
+	
+	public boolean fenetreEstTransparente()
+	{
+		return this.ihm.estTransparente();
+	}
 
 	public static void main( String[] args )
 	{
