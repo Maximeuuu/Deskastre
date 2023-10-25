@@ -45,17 +45,17 @@ public class PanelJeu extends JPanel implements MouseListener
 			if( element instanceof Statistique ) //problème : impossible d'afficher le texte ?
 			{
 				//System.out.println( ((Statistique)element).toString() );
-				if( !this.ctrl.fenetreEstTransparente() )
+				if( this.ctrl.fenetreEstTransparente() )
 				{ //TODO : les dimensions et positions du rectangle ne sont pas bonnes
-					g2.setColor(new Color(17, 25, 145, 80));
-					
+					g2.setColor(new Color(225, 215, 236, 220));
+
 					FontMetrics fontMetrics = g2.getFontMetrics(); // Obtenir les informations sur la police actuelle
 					String text = new String(new char[(int)element.getDimension().getWidth()]).replace('\0', 'X'); // Créez une chaîne de caractères répétée numberOfCharacters fois
 					int stringWidth = fontMetrics.stringWidth(text);
-					
+
 					g2.fillRect((int)element.getX(),(int)element.getY(), stringWidth, (int)element.getDimension().getHeight()*g2.getFontMetrics().getHeight()); // Dessine un rectangle d'arrière-plan
 				}
-				
+
 				g2.setColor(new Color(255,255,255));
 				PanelJeu.drawStatistique( ((Statistique)element), g2 );
 			}
@@ -68,7 +68,7 @@ public class PanelJeu extends JPanel implements MouseListener
 
 		g2.dispose();
 	}
-	
+
 	private static void drawStatistique( Statistique stat, Graphics2D g2 )
 	{
 		g2.setColor(Color.BLACK); // Couleur du texte

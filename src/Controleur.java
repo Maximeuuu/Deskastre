@@ -57,9 +57,10 @@ public class Controleur
 			this.ihm.repaint();
 		}
 	}
-	
+
 	public boolean fenetreEstTransparente()
 	{
+		if( this.ihm == null ){ System.out.println("ihm null"); return false; } //je ne sais pas pourquoi il faut ça ; faudra essayer de le supprimer
 		return this.ihm.estTransparente();
 	}
 
