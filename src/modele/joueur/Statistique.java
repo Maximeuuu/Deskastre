@@ -39,11 +39,11 @@ public final class Statistique extends AbstractEntite
 	public String toString()
 	{
 		String sRet = "Stats : \n" +
-        	" - distance : " + String.format("%.2f m\n", this.distance) +
-        	" - vitesse : " + String.format("%.2f m/s\n", this.vitesse) +
-        	" - carburant : " + String.format("%d litres\n", this.carburant) +
-        	" - metaux : " + String.format("%d asteroides\n", this.asteroide) +
-        	" - argent : " + String.format("%d €\n", this.argent);
+        	" - distance : " + String.format("%.2f m", this.distance) +
+        	"\n - vitesse : " + String.format("%.2f m/s", this.vitesse) +
+        	"\n - carburant : " + String.format("%d litres", this.carburant) +
+        	"\n - metaux : " + String.format("%d asteroides", this.asteroide) +
+        	"\n - argent : " + String.format("%d €", this.argent);
 
     	return sRet;
 	}

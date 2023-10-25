@@ -23,7 +23,7 @@ public class Jeu
 	{
 		this.ensEntite = new CopyOnWriteArrayList<AbstractEntite>();
 
-		this.statsJoueur = new Statistique( new Point(0,0) );
+		this.statsJoueur = new Statistique( new Point(20,20) );
 		this.ensEntite.add( statsJoueur );
 
 		Entite entite = new Vaisseau( new Point(100,100), new Dimension(700,500), "vaisseaux/vaisseau1.png", 5);
