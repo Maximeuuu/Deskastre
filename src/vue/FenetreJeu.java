@@ -16,24 +16,22 @@ public class FenetreJeu extends JFrame
 	private int largeur;
 	private int hauteur;
 	private Controleur ctrl;
-	private boolean estTransparente;
 
 	public FenetreJeu( Controleur ctrl )
 	{
 		this.ctrl = ctrl;
 
-		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-		this.estTransparente = gd.getDefaultConfiguration().isTranslucencyCapable();
-		
-		if( this.estTransparente )
+		if( ConfigurationInterface.transparence() )
 		{
 			this.setUndecorated(true);
 			this.setBackground( new Color(0,0,0,0) );
 		}
 
+		this.setLocation(0,0);
+
 		/* Dimensions */
 		this.setResizable(false);
-		this.setSize(1920, 1080);
+		this.setSize( ConfigurationInterface.ecran() );
 
 		/*Composants*/
 		this.panel = new PanelJeu( this.ctrl );
@@ -48,6 +46,4 @@ public class FenetreJeu extends JFrame
 		//this.setOpacity​((float)(0.0));non
 		//this.setGlassPane( this.panel ); non
 	}
-	
-	public final boolean estTransparente(){ return this.estTransparente; }
 }

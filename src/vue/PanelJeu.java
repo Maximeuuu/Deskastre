@@ -1,6 +1,7 @@
 package deskastre.vue;
 
 import deskastre.Controleur;
+import deskastre.vue.ConfigurationInterface;
 import deskastre.modele.entite.Entite;
 import deskastre.modele.entite.AbstractEntite;
 import deskastre.modele.joueur.Statistique;
@@ -42,10 +43,10 @@ public class PanelJeu extends JPanel implements MouseListener
 		List<AbstractEntite> ensElement = this.ctrl.getEnsEntite();
 		for( AbstractEntite element : ensElement )
 		{
-			if( element instanceof Statistique ) //problème : impossible d'afficher le texte ?
+			if( element instanceof Statistique )
 			{
 				//System.out.println( ((Statistique)element).toString() );
-				if( this.ctrl.fenetreEstTransparente() )
+				if( ConfigurationInterface.transparence() )
 				{ //TODO : les dimensions et positions du rectangle ne sont pas bonnes
 					g2.setColor(new Color(225, 215, 236, 220));
 
@@ -87,6 +88,7 @@ public class PanelJeu extends JPanel implements MouseListener
 	public void mouseReleased(MouseEvent e){}
 	public void mouseClicked(MouseEvent e)
 	{
+		System.out.println(e.getPoint());
 		this.ctrl.zoneCliquee( e.getPoint() );
 	}
 }

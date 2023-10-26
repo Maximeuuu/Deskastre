@@ -8,3 +8,6 @@ setXORMode()
 import java.awt.geom.RoundRectangle2D;
 this.setShape(new RoundRectangle2D.Double(0, 0, 500, 600, 80, 80));
 
+
+Window	getFullScreenWindow()
+void	setFullScreenWindow​(Window w)

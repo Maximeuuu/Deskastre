@@ -1,8 +1,11 @@
 package deskastre.modele.entite;
 
+import deskastre.vue.ConfigurationInterface;
+
 import java.awt.Point;
 import java.awt.Dimension;
 import java.awt.geom.Point2D;
+import java.awt.Shape;
 import java.awt.Rectangle;
 
 /**
@@ -23,15 +26,22 @@ public abstract class AbstractEntite extends Point2D.Double
 		this.visibilite = true;
 	}
 
-	public boolean isVisibleOnScreen( Dimension dim )
+	public boolean estPlaceDans( Shape figure )
 	{
-		Rectangle rectangleEcran = new Rectangle( dim );
-
-		boolean contientOrigine = (rectangleEcran.contains( super.getX(), super.getY() )                                                      );
-		boolean contientObjet   = (rectangleEcran.contains( super.getX()+this.dimension.getWidth(), super.getY()+this.dimension.getHeight() ) );
-
+		boolean contientOrigine = (figure.contains( super.getX(), super.getY() )                                                      );
+		boolean contientObjet   = (figure.contains( super.getX()+this.dimension.getWidth(), super.getY()+this.dimension.getHeight() ) );
 		return (contientOrigine || contientObjet);
 	}
+
+	public boolean isVisibleOnScreen()
+	{
+		Rectangle rectangleEcran = new Rectangle( ConfigurationInterface.ecran() );
+		return this.estPlaceDans( rectangleEcran );
+	}
+
+	public boolean estSortieEcranGauche(){ return ( (super.getX()+this.dimension.getWidth()) < 0 ); }
+	public boolean estSortieEcranHaut(){ return ( (super.getY()+this.dimension.getHeight()) < 0 ); }
+	public boolean estSortieEcranBas(){ return (super.getY() > ConfigurationInterface.ecran().getHeight() ); }
 
 	public void setVisibilite( boolean visibilite ){ this.visibilite = visibilite; }
 	public boolean getVisibilite(){ return this.visibilite; }

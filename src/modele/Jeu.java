@@ -2,6 +2,7 @@ package deskastre.modele;
 
 import deskastre.modele.entite.*;
 import deskastre.modele.joueur.*;
+import deskastre.vue.ConfigurationInterface;
 
 import java.util.List;
 import java.util.Collections;
@@ -26,7 +27,9 @@ public class Jeu
 		this.statsJoueur = new Statistique( new Point(20,20) );
 		this.ensEntite.add( statsJoueur );
 
-		Entite entite = new Vaisseau( new Point(100,100), new Dimension(700,500), "vaisseaux/vaisseau1.png", 5);
+		Entite entite;
+
+		entite = new Vaisseau( new Point(100,100), new Dimension(700,500), "vaisseaux/vaisseau1.png", 5);
 		this.ensEntite.add( entite );
 
 		entite = new Asteroide( new Point(800,100), new Dimension(250,250), "objets/asteroide.png");
@@ -48,6 +51,14 @@ public class Jeu
 		entite = new Asteroide( new Point(1200,800), new Dimension(100,100), "objets/asteroide.png");
 		((Asteroide)entite).setVelocite(-0.5,-0.1);
 		this.ensEntite.add( entite );
+
+		/*entite = new Asteroide( new Point(0,0), new Dimension(200,200), "objets/asteroide.png");
+		((Asteroide)entite).setVelocite(0,0);
+		this.ensEntite.add( entite );
+
+		entite = new Asteroide( new Point( (int)(ConfigurationInterface.ecran().getWidth())-50, (int)(ConfigurationInterface.ecran().getHeight())-50 ), new Dimension(200,200), "objets/asteroide.png");
+		((Asteroide)entite).setVelocite(0,0);
+		this.ensEntite.add( entite );*/
 	}
 
 	public void actualiser()
@@ -59,13 +70,13 @@ public class Jeu
 				((IDeplacable)(entite)).avancer();
 				//System.out.println( (Point2D)entite ); //DEBUG: afficher les coordonnees de chaque élements déplacés
 
-				if( !entite.isVisibleOnScreen( new Dimension(1920,1080) ) )
+				if( entite.estSortieEcranGauche() || entite.estSortieEcranHaut() || entite.estSortieEcranBas() ) //!entite.isVisibleOnScreen( ConfigurationInterface.ecran )
 				{
 					System.out.println("Destruction d'une entite");
 					this.ensEntite.remove( entite );
 				}
 			}
-			
+
 			if( entite instanceof Statistique )
 			{
 				((Statistique)entite).majDimension();

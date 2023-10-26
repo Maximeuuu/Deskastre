@@ -16,5 +16,6 @@ src/modele/entite/Vaisseau.java
 
 src/modele/joueur/Statistique.java
 
+src/vue/ConfigurationInterface.java
 src/vue/FenetreJeu.java
 src/vue/PanelJeu.java

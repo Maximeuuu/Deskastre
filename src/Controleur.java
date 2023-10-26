@@ -3,6 +3,7 @@ package deskastre;
 import deskastre.modele.entite.*;
 import deskastre.vue.*;
 import deskastre.modele.*;
+import deskastre.vue.ConfigurationInterface;
 
 import java.awt.Point;
 import javax.swing.SwingUtilities;
@@ -21,9 +22,12 @@ public class Controleur
 	private Jeu metier;
 	private FenetreJeu ihm;
 	private Timer timer;
+	//private ConfigurationInterface config;
 
 	public Controleur()
 	{
+		ConfigurationInterface.initProprietes( ConfigurationInterface.ECRAN_PRINCIPAL );
+		System.out.println( ConfigurationInterface.ecran() );
 		this.metier = new Jeu();
 		this.ihm = new FenetreJeu( this );
 		this.timer = new Timer();
@@ -58,11 +62,15 @@ public class Controleur
 		}
 	}
 
-	public boolean fenetreEstTransparente()
+	/*public boolean fenetreEstTransparente()
 	{
-		if( this.ihm == null ){ System.out.println("ihm null"); return false; } //je ne sais pas pourquoi il faut ça ; faudra essayer de le supprimer
-		return this.ihm.estTransparente();
+		return ConfigurationInterface.transparence();
 	}
+
+	public Dimension getDimensionEcran()
+	{
+		return ConfigurationInterface.ecran();
+	}*/
 
 	public static void main( String[] args )
 	{
