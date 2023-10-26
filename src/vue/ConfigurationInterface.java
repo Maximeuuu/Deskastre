@@ -25,7 +25,7 @@ public abstract class ConfigurationInterface
 	public majPropriete();
 	*/
 
-	public static void initProprietes( int numEcran )
+	public static void initProprietes( int numEcran ) // WARNING : ENORME PROBLEME LIES A LA RECUPERATION DE LA TAILLE REELLE DE LECRAN
 	{
 		GraphicsDevice gd;
 		if( numEcran == ConfigurationInterface.ECRAN_PRINCIPAL ){ gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice(); }
