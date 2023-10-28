@@ -31,18 +31,37 @@ public class Controleur
 
 		this.metier = new Jeu( this.config.getDimensionEcran() );
 		this.ihm = new FenetreJeu( this );
+
 		this.timer = new Timer();
 
 		timer.schedule(new TimerTask() {
             @Override
             public void run() {
+				// Réactualiser l'IHM
+                Controleur.this.ihm.repaint();
+
                 // Réactualiser le modèle
 				Controleur.this.metier.actualiser();
-
-                // Réactualiser l'IHM
-                Controleur.this.ihm.repaint();
             }
         }, 0, Constantes.TEMPS);
+
+		/*double drawIntervale = 1_000_000_000/60;
+		double nextDrawTime = System.nanoTime() + drawIntervale;
+		while( true )
+		{
+			this.metier.actualiser();
+			this.ihm.repaint();
+
+			try
+			{
+				double remainingTime = nextDrawTime - System.nanoTime();
+				if( remainingTime < 0 ){ remainingTime = 0; }
+				Thread.sleep( (long)remainingTime/1_000_000 );
+			}
+			catch( Exception e ){}
+
+			nextDrawTime += drawIntervale;
+		}*/
 	}
 
 	public List<AbstractEntite> getEnsEntite()
@@ -58,7 +77,6 @@ public class Controleur
 	public void zoneCliquee( Point point )
 	{
 		this.metier.zoneCliquee( point );
-
 	}
 
 	public boolean fenetreEstTransparente()

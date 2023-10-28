@@ -81,7 +81,14 @@ public class PanelJeu extends JPanel implements MouseListener
 	}
 
 	@Override
-	public void mousePressed(MouseEvent e){}
+	public void mousePressed(MouseEvent e)
+	{
+		//System.out.println(e.getPoint());
+		double timedeb = System.nanoTime();
+		this.ctrl.zoneCliquee( e.getPoint() );
+		double timefin = System.nanoTime();
+		System.out.println( timefin - timedeb);
+	}
 	@Override
 	public void mouseExited(MouseEvent e){}
 	@Override
@@ -91,7 +98,6 @@ public class PanelJeu extends JPanel implements MouseListener
 	@Override
 	public void mouseClicked(MouseEvent e)
 	{
-		System.out.println(e.getPoint());
-		this.ctrl.zoneCliquee( e.getPoint() );
+		//mettre dans mousePressed ou mouseClicked
 	}
 }

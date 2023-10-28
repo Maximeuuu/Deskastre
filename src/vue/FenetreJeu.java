@@ -22,10 +22,10 @@ public class FenetreJeu extends JFrame implements KeyListener
 	{
 		this.ctrl = ctrl;
 		this.setIgnoreRepaint( true );
+		this.setUndecorated(true);
 
 		if( this.ctrl.fenetreEstTransparente() )
 		{
-			this.setUndecorated(true);
 			this.setBackground( new Color(0,0,0,0) );
 		}
 
@@ -57,5 +57,9 @@ public class FenetreJeu extends JFrame implements KeyListener
 		{
             System.exit(0);
         }
+		if( e.getKeyCode() == KeyEvent.VK_ESCAPE )
+		{
+			System.exit(0);
+		}
     }
 }
