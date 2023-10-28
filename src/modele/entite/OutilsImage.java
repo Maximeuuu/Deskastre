@@ -78,7 +78,16 @@ public final class OutilsImage
 
 		return polygone;
 	}
-	
+
+	/**
+	 * Simplifie un polygone avec une tolerance par defaut
+	 * @autor : Maximeuuu
+	 */
+	public static Polygon getPolygoneSimplifie( Polygon figure )
+	{
+		return OutilsImage.getPolygoneSimplifie( figure, 2.0 );
+	}
+
 	/**
 	 * Simplifie un polygone
 	 * @autor : ChatGPT
@@ -88,8 +97,6 @@ public final class OutilsImage
 		int numPoints = figure.npoints;
         int[] xPoints = figure.xpoints;
         int[] yPoints = figure.ypoints;
-
-		System.out.println("taille avant : " + figure.npoints);
 
         // Créez un tableau pour marquer les points à conserver
         boolean[] keep = new boolean[numPoints];
@@ -123,11 +130,11 @@ public final class OutilsImage
             }
         }
 
-		System.out.println("taille après : " + figure.npoints);
+		figure = new Polygon(newXPoints, newYPoints, newNumPoints);
 
-        return new Polygon(newXPoints, newYPoints, newNumPoints);
+        return figure;
 	}
-	
+
 	/**
 	 * Methode utilisee pour simplifier un polygone
 	 * @autor : ChatGPT

@@ -30,7 +30,7 @@ public class Vaisseau extends Entite implements IAttaque, IInteraction
 		this.degat = degat;
 		this.velociteX = 0;
 		this.velociteY = 0;
-		this.masque = OutilsImage.getPolygoneSimplifie( OutilsImage.getMasqueImage( super.getImage() ), 1.0 );
+		this.masque = OutilsImage.getPolygoneSimplifie( OutilsImage.getMasqueImage( super.getImage() ) );
 	}
 
 	public int getPuissanceAttaque(){ return this.degat; }

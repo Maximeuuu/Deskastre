@@ -25,7 +25,7 @@ public class Asteroide extends Entite implements IDeplacable, IInteraction, IDes
 
 		this.velociteX = -1.0;
 		this.velociteY = 0;
-		this.masque = OutilsImage.getPolygoneSimplifie( OutilsImage.getMasqueImage( super.getImage() ), 1.0 );
+		this.masque = OutilsImage.getPolygoneSimplifie( OutilsImage.getMasqueImage( super.getImage() ) );
 		this.pvMax = 1;
 		this.pvActuel = this.pvMax;
 	}

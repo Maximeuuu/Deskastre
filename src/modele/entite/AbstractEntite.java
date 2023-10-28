@@ -29,11 +29,6 @@ public abstract class AbstractEntite extends Point2D.Double
 		return (contientOrigine || contientObjet);
 	}
 
-	/* INUTILE et A SUPPRIMER
-	public boolean estSortieEcranGauche(){ return ( (super.getX()+this.dimension.getWidth()) < 0 ); }
-	public boolean estSortieEcranHaut(){ return ( (super.getY()+this.dimension.getHeight()) < 0 ); }
-	public boolean estSortieEcranBas(){ return (super.getY() > ConfigurationInterface.ecran().getHeight() ); }*/
-
 	public void setVisibilite( boolean visibilite ){ this.visibilite = visibilite; }
 	public boolean getVisibilite(){ return this.visibilite; }
 

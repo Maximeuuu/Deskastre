@@ -57,10 +57,8 @@ public class Controleur
 
 	public void zoneCliquee( Point point )
 	{
-		if( this.metier.zoneCliquee( point ) )
-		{
-			this.ihm.repaint();
-		}
+		this.metier.zoneCliquee( point );
+
 	}
 
 	public boolean fenetreEstTransparente()
