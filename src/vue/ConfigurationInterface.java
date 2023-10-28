@@ -12,40 +12,48 @@ import java.awt.Toolkit;
  */
 public abstract class ConfigurationInterface
 {
+	//ATTENTION : Constantes à changer avec connaissance de cause
 	public static final int ECRAN_PRINCIPAL = -1;
+	public static final int DPI_DEFAUT = 96; //DPI par défaut de Windows
+	public static final Dimension RESOLUTION_DEFAUT = new Dimension(1920,1080); //Dimension choisie pour le jeu
+	public static final boolean WINDOW_TRANSPARENCE = false; //Etat le plus sécurisé
 
 	private static int numEcran = ECRAN_PRINCIPAL;
-	private static double dpi = 96.0;
-	private static Dimension ecran = new Dimension(1920,1080);
-	private static boolean transparence = false;
+	private static double dpi = DPI_DEFAUT;
+	private static Dimension ecran = RESOLUTION_DEFAUT;
+	private static boolean transparence = WINDOW_TRANSPARENCE;
 
-	/*par la suite :
+	/*par la suite peut êter créer une classe instanciable :
 	private ConfigurationInterface(){...}
 	private static initConfiguration( if( this.instance == null : this.instance = new ConfigurationInterface(); return this.instacne(); ) )
 	public majPropriete();
 	*/
 
-	public static void initProprietes( int numEcran ) // WARNING : ENORME PROBLEME LIES A LA RECUPERATION DE LA TAILLE REELLE DE LECRAN
+	/**
+	 * Permet d'initialiser avec les configurations exactes de l'ordinateur
+	 */
+	public static void initProprietes( int numEcran )
 	{
 		GraphicsDevice gd;
+
+		//Récupération des propriétés de l'écran utilisé
 		if( numEcran == ConfigurationInterface.ECRAN_PRINCIPAL ){ gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice(); }
 		else{ gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices()[numEcran]; }
 
-		Toolkit toolkit = Toolkit.getDefaultToolkit();
-		ConfigurationInterface.dpi = toolkit.getScreenResolution()/100;
+		//Capacité à creer des fenetres transparente par l'OS
+		ConfigurationInterface.transparence = gd.getDefaultConfiguration().isTranslucencyCapable();
 
-        //double screenScaleFactor = toolkit.getScreenResolution() / ConfigurationInterface.dpi; // Récupère le facteur de mise à l'échelle de l'écran
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+
+		//Récupération du DPI (correspond à la "mise à l'échelle" dans Windows)
+		ConfigurationInterface.dpi = toolkit.getScreenResolution()/ConfigurationInterface.DPI_DEFAUT;
+
+		//adaptation des dimensiosn en fonction du DPI
         int screenWidth = (int) (toolkit.getScreenSize().getWidth() * ConfigurationInterface.dpi);
         int screenHeight = (int) (toolkit.getScreenSize().getHeight() * ConfigurationInterface.dpi);
 
-		/*DisplayMode dm = gd.getDisplayMode();
-		int screenWidth = dm.getWidth();
-		int screenHeight = dm.getHeight();*/
+		//affectation des nouvelles valeurs d'écran
 		ConfigurationInterface.ecran.setSize( screenWidth, screenHeight );
-
-
-
-		ConfigurationInterface.transparence = gd.getDefaultConfiguration().isTranslucencyCapable();
 	}
 
 	public static int numeroEcran(){ return ConfigurationInterface.numEcran; }
