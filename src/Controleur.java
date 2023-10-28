@@ -6,6 +6,7 @@ import deskastre.modele.*;
 import deskastre.vue.ConfigurationInterface;
 
 import java.awt.Point;
+import java.awt.Dimension;
 import javax.swing.SwingUtilities;
 import java.util.List;
 
@@ -19,16 +20,16 @@ import java.util.TimerTask;
  */
 public class Controleur
 {
+	private ConfigurationInterface config;
 	private Jeu metier;
 	private FenetreJeu ihm;
 	private Timer timer;
-	//private ConfigurationInterface config;
 
 	public Controleur()
 	{
-		ConfigurationInterface.initProprietes( ConfigurationInterface.ECRAN_PRINCIPAL );
-		System.out.println( ConfigurationInterface.ecran() );
-		this.metier = new Jeu();
+		this.config = new ConfigurationInterface();
+
+		this.metier = new Jeu( this.config.getDimensionEcran() );
 		this.ihm = new FenetreJeu( this );
 		this.timer = new Timer();
 
@@ -62,15 +63,15 @@ public class Controleur
 		}
 	}
 
-	/*public boolean fenetreEstTransparente()
+	public boolean fenetreEstTransparente()
 	{
-		return ConfigurationInterface.transparence();
+		return this.config.getTransparence();
 	}
 
 	public Dimension getDimensionEcran()
 	{
-		return ConfigurationInterface.ecran();
-	}*/
+		return this.config.getDimensionEcran();
+	}
 
 	public static void main( String[] args )
 	{

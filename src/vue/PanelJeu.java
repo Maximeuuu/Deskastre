@@ -1,7 +1,6 @@
 package deskastre.vue;
 
 import deskastre.Controleur;
-import deskastre.vue.ConfigurationInterface;
 import deskastre.modele.entite.Entite;
 import deskastre.modele.entite.AbstractEntite;
 import deskastre.modele.joueur.Statistique;
@@ -28,7 +27,6 @@ public class PanelJeu extends JPanel implements MouseListener
 	{
 		this.ctrl = ctrl;
 		this.setBackground( new Color(0,0,0,0) );
-		this.repaint();
 		this.addMouseListener( this );
 		this.setDoubleBuffered(true);
 	}
@@ -46,7 +44,7 @@ public class PanelJeu extends JPanel implements MouseListener
 			if( element instanceof Statistique )
 			{
 				//System.out.println( ((Statistique)element).toString() );
-				if( ConfigurationInterface.transparence() )
+				if( this.ctrl.fenetreEstTransparente() )
 				{ //TODO : les dimensions et positions du rectangle ne sont pas bonnes
 					g2.setColor(new Color(225, 215, 236, 220));
 

@@ -1,12 +1,8 @@
 package deskastre.modele.entite;
 
-import deskastre.vue.ConfigurationInterface;
-
-import java.awt.Point;
-import java.awt.Dimension;
 import java.awt.geom.Point2D;
+import java.awt.Dimension;
 import java.awt.Shape;
-import java.awt.Rectangle;
 
 /**
  * Classe principale pour une entite du jeu
@@ -33,15 +29,10 @@ public abstract class AbstractEntite extends Point2D.Double
 		return (contientOrigine || contientObjet);
 	}
 
-	public boolean isVisibleOnScreen()
-	{
-		Rectangle rectangleEcran = new Rectangle( ConfigurationInterface.ecran() );
-		return this.estPlaceDans( rectangleEcran );
-	}
-
+	/* INUTILE et A SUPPRIMER
 	public boolean estSortieEcranGauche(){ return ( (super.getX()+this.dimension.getWidth()) < 0 ); }
 	public boolean estSortieEcranHaut(){ return ( (super.getY()+this.dimension.getHeight()) < 0 ); }
-	public boolean estSortieEcranBas(){ return (super.getY() > ConfigurationInterface.ecran().getHeight() ); }
+	public boolean estSortieEcranBas(){ return (super.getY() > ConfigurationInterface.ecran().getHeight() ); }*/
 
 	public void setVisibilite( boolean visibilite ){ this.visibilite = visibilite; }
 	public boolean getVisibilite(){ return this.visibilite; }

@@ -20,8 +20,9 @@ public class FenetreJeu extends JFrame
 	public FenetreJeu( Controleur ctrl )
 	{
 		this.ctrl = ctrl;
+		this.setIgnoreRepaint( true );
 
-		if( ConfigurationInterface.transparence() )
+		if( this.ctrl.fenetreEstTransparente() )
 		{
 			this.setUndecorated(true);
 			this.setBackground( new Color(0,0,0,0) );
@@ -31,7 +32,7 @@ public class FenetreJeu extends JFrame
 
 		/* Dimensions */
 		this.setResizable(false);
-		this.setSize( ConfigurationInterface.ecran() );
+		this.setSize( this.ctrl.getDimensionEcran() );
 
 		/*Composants*/
 		this.panel = new PanelJeu( this.ctrl );
@@ -40,10 +41,11 @@ public class FenetreJeu extends JFrame
 		/* Activation */
 		this.setVisible(true);
 		this.setAlwaysOnTop(true);
-		/*this.getRootPane().putClientProperty("Window.alpha", 0.8f);
-		this.getRootPane().setWindowDecorationStyle( JRootPane.NONE );*/ //a regarder
-
-		//this.setOpacity​((float)(0.0));non
-		//this.setGlassPane( this.panel ); non
 	}
+
+	//TODO
+	/*
+		* Detection F11 -> fullScreen
+		* CTRL+C -> exit(0)
+	*/
 }
