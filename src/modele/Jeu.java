@@ -1,7 +1,9 @@
 package deskastre.modele;
 
 import deskastre.modele.entite.*;
+import deskastre.modele.entite.propriete.*;
 import deskastre.modele.joueur.*;
+import deskastre.modele.Constantes;
 
 import java.util.List;
 import java.util.Collections;
@@ -16,22 +18,24 @@ import java.awt.geom.Point2D;
  */
 public class Jeu
 {
-	private Dimension ecran;
 	private List<AbstractEntite> ensEntite;
-	private Statistique statsJoueur;
+	private Joueur statsJoueur;
+	private double tempsDebut;
 
-	public Jeu( Dimension ecran )
+	public Jeu()
 	{
-		this.ecran = ecran;
+		this.tempsDebut = System.nanoTime();
 
 		this.ensEntite = new CopyOnWriteArrayList<AbstractEntite>();
 
-		this.statsJoueur = new Statistique( new Point(20,20) );
-		this.ensEntite.add( statsJoueur );
+		this.statsJoueur = new Joueur();
 
-		Entite entite;
+		AbstractEntite entite;
 
-		entite = new Vaisseau(  new Point( (int)(this.ecran.getWidth()-700)/2, (int)(this.ecran.getHeight()-500)/2) , new Dimension(700,500), "vaisseaux/vaisseau1.png", 5);
+		entite = new Statistique( new Point(20,20), this.statsJoueur );
+		this.ensEntite.add( entite );
+
+		entite = new Vaisseau(  new Point( (int)(Constantes.DIMENSIONS_JEU.getWidth()-700)/2, (int)(Constantes.DIMENSIONS_JEU.getHeight()-500)/2) , new Dimension(700,500), "vaisseaux/vaisseau1.png", 5);
 		this.ensEntite.add( entite );
 
 		entite = new Asteroide( new Point(800,100), new Dimension(250,250), "objets/asteroide.png");
@@ -58,14 +62,14 @@ public class Jeu
 		((Asteroide)entite).setVelocite(0,0);
 		this.ensEntite.add( entite );
 
-		entite = new Asteroide( new Point( (int)(this.ecran.getWidth())-200, (int)(this.ecran.getHeight())-200 ), new Dimension(200,200), "objets/asteroide.png");
+		entite = new Asteroide( new Point( (int)(Constantes.DIMENSIONS_JEU.getWidth())-200, (int)(Constantes.DIMENSIONS_JEU.getHeight())-200 ), new Dimension(200,200), "objets/asteroide.png");
 		((Asteroide)entite).setVelocite(0,0);
 		this.ensEntite.add( entite );
 	}
 
 	public void actualiser()
 	{
-		for( AbstractEntite entite : this.ensEntite ) //penser à parcourir dans le sens inverse par la suite (parce que les images se superposent donc la dernière images doit être la première à pouvoir être selectionnée)
+		for( AbstractEntite entite : this.ensEntite )
 		{
 			if( entite instanceof IDeplacable )
 			{
@@ -74,7 +78,8 @@ public class Jeu
 
 				if( !this.entiteIsVisibleOnScreen( entite ) )
 				{
-					System.out.println("Destruction d'une entite");
+					double timefin = System.nanoTime();
+					System.out.println("Destruction d'une entite à "+(timefin - this.tempsDebut)/1_000_000_000.0);
 					this.ensEntite.remove( entite );
 				}
 			}
@@ -89,7 +94,7 @@ public class Jeu
 
 	public boolean entiteIsVisibleOnScreen( AbstractEntite entite )
 	{
-		Rectangle rectangleEcran = new Rectangle( this.ecran );
+		Rectangle rectangleEcran = new Rectangle( Constantes.DIMENSIONS_JEU );
 		return entite.estPlaceDans( rectangleEcran );
 	}
 

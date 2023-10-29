@@ -1,6 +1,6 @@
-package deskastre.modele.entite;
+package deskastre.modele.entite; //package "outil" par la suite ?
 
-import deskastre.Constantes;
+import deskastre.modele.Constantes;
 
 import java.awt.*;
 import javax.swing.*;

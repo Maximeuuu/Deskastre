@@ -3,7 +3,7 @@ package deskastre.vue;
 import deskastre.Controleur;
 import deskastre.modele.entite.Entite;
 import deskastre.modele.entite.AbstractEntite;
-import deskastre.modele.joueur.Statistique;
+import deskastre.modele.entite.Statistique;
 
 import java.util.List;
 
@@ -38,13 +38,16 @@ public class PanelJeu extends JPanel implements MouseListener
 
 		Graphics2D g2 = (Graphics2D)g;
 
+		/* Mise à l'échelle automatique */
+		g2.scale( this.ctrl.getEchelleUtilisateur(0), this.ctrl.getEchelleUtilisateur(1) );
+
 		List<AbstractEntite> ensElement = this.ctrl.getEnsEntite();
 		for( AbstractEntite element : ensElement )
 		{
 			if( element instanceof Statistique )
 			{
 				//System.out.println( ((Statistique)element).toString() );
-				if( this.ctrl.fenetreEstTransparente() )
+				if( this.ctrl.transparenceFenetrePossible() )
 				{ //TODO : les dimensions et positions du rectangle ne sont pas bonnes
 					g2.setColor(new Color(225, 215, 236, 220));
 
@@ -85,7 +88,8 @@ public class PanelJeu extends JPanel implements MouseListener
 	{
 		//System.out.println(e.getPoint());
 		double timedeb = System.nanoTime();
-		this.ctrl.zoneCliquee( e.getPoint() );
+		Point point = e.getPoint();
+		this.ctrl.zoneCliqueeJeu( new Point( (int)(point.getX()*1/this.ctrl.getEchelleUtilisateur(0)), (int)(point.getY()*1/this.ctrl.getEchelleUtilisateur(1)) ) );
 		double timefin = System.nanoTime();
 		System.out.println( timefin - timedeb);
 	}

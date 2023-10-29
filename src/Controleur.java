@@ -3,7 +3,6 @@ package deskastre;
 import deskastre.modele.entite.*;
 import deskastre.vue.*;
 import deskastre.modele.*;
-import deskastre.vue.ConfigurationInterface;
 
 import java.awt.Point;
 import java.awt.Dimension;
@@ -20,16 +19,16 @@ import java.util.TimerTask;
  */
 public class Controleur
 {
-	private ConfigurationInterface config;
+	private ConfigurationMaterielle config;
 	private Jeu metier;
 	private FenetreJeu ihm;
 	private Timer timer;
 
 	public Controleur()
 	{
-		this.config = new ConfigurationInterface();
+		this.config = new ConfigurationMaterielle();
 
-		this.metier = new Jeu( this.config.getDimensionEcran() );
+		this.metier = new Jeu();
 		this.ihm = new FenetreJeu( this );
 
 		this.timer = new Timer();
@@ -74,19 +73,24 @@ public class Controleur
 		return this.metier.getNomEntite( point );
 	}
 
-	public void zoneCliquee( Point point )
+	public void zoneCliqueeJeu( Point point ) //zoneCliqueeEcran -> changer les proportions ici avant d'appeler dans métier
 	{
 		this.metier.zoneCliquee( point );
 	}
 
-	public boolean fenetreEstTransparente()
+	public boolean transparenceFenetrePossible()
 	{
 		return this.config.getTransparence();
 	}
 
-	public Dimension getDimensionEcran()
+	public Dimension getDimensionEcranUtilisateur()
 	{
 		return this.config.getDimensionEcran();
+	}
+
+	public double getEchelleUtilisateur( int ind )
+	{
+		return this.config.getEchelle()[ind];
 	}
 
 	public static void main( String[] args )

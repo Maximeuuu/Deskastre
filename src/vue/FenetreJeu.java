@@ -13,29 +13,30 @@ import java.awt.event.*;
  */
 public class FenetreJeu extends JFrame implements KeyListener
 {
-	private PanelJeu panel;
-	private int largeur;
-	private int hauteur;
 	private Controleur ctrl;
+	private PanelJeu panel;
 
 	public FenetreJeu( Controleur ctrl )
 	{
+		/* Attribut */
 		this.ctrl = ctrl;
-		this.setIgnoreRepaint( true );
-		this.setUndecorated(true);
 
-		if( this.ctrl.fenetreEstTransparente() )
+		/* Proprietes */
+		this.setIgnoreRepaint(true);
+		this.setUndecorated(true);
+		if( this.ctrl.transparenceFenetrePossible() )
 		{
 			this.setBackground( new Color(0,0,0,0) );
 		}
 
+		/* Position */
 		this.setLocation(0,0);
 
 		/* Dimensions */
 		this.setResizable(false);
-		this.setSize( this.ctrl.getDimensionEcran() );
+		this.setSize( this.ctrl.getDimensionEcranUtilisateur() );
 
-		/*Composants*/
+		/* Composant */
 		this.panel = new PanelJeu( this.ctrl );
 		this.add( this.panel );
 
@@ -53,13 +54,12 @@ public class FenetreJeu extends JFrame implements KeyListener
     @Override
     public void keyPressed(KeyEvent e)
 	{
-		if (e.getKeyCode() == KeyEvent.VK_C && (e.getModifiersEx() & InputEvent.CTRL_DOWN_MASK) != 0)
+		boolean ctrl_C = (  e.getKeyCode() == KeyEvent.VK_C && (e.getModifiersEx() & InputEvent.CTRL_DOWN_MASK) != 0  );
+		boolean echap = (  e.getKeyCode() == KeyEvent.VK_ESCAPE  );
+
+		if( ctrl_C || echap )
 		{
             System.exit(0);
         }
-		if( e.getKeyCode() == KeyEvent.VK_ESCAPE )
-		{
-			System.exit(0);
-		}
     }
 }

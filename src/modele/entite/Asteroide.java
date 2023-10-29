@@ -1,6 +1,7 @@
 package deskastre.modele.entite;
 
-import deskastre.Constantes;
+import deskastre.modele.Constantes;
+import deskastre.modele.entite.propriete.*;
 
 import java.awt.Point;
 import java.awt.geom.Point2D;

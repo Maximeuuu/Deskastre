@@ -1,4 +1,4 @@
-package deskastre.modele.entite;
+package deskastre.modele.entite.propriete;
 
 /**
  * Objet pouvant etre deplace

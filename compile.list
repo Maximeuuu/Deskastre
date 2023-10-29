@@ -1,21 +1,25 @@
-src/Constantes.java
 src/Controleur.java
+src/VariablesUtilisateur.java
 
 src/modele/Jeu.java
+src/modele/Constantes.java
 
 src/modele/entite/AbstractEntite.java
-src/modele/entite/Asteroide.java
 src/modele/entite/Entite.java
-src/modele/entite/IAttaque.java
-src/modele/entite/IDeplacable.java
-src/modele/entite/IDestructible.java
-src/modele/entite/IInteraction.java
-
-src/modele/entite/OutilsImage.java
+src/modele/entite/Asteroide.java
 src/modele/entite/Vaisseau.java
+src/modele/entite/OutilsImage.java
+src/modele/entite/Statistique.java
 
-src/modele/joueur/Statistique.java
+src/modele/entite/propriete/IAttaque.java
+src/modele/entite/propriete/IControlable.java
+src/modele/entite/propriete/IDeplacable.java
+src/modele/entite/propriete/IDestructible.java
+src/modele/entite/propriete/IInteraction.java
 
-src/vue/ConfigurationInterface.java
+src/modele/joueur/IInformation.java
+src/modele/joueur/Joueur.java
+
+src/vue/ConfigurationMaterielle.java
 src/vue/FenetreJeu.java
 src/vue/PanelJeu.java

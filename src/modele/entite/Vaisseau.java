@@ -1,5 +1,7 @@
 package deskastre.modele.entite;
 
+import deskastre.modele.entite.propriete.*;
+
 import java.awt.Polygon;
 import java.awt.Point;
 import java.awt.Dimension;
@@ -17,9 +19,7 @@ public class Vaisseau extends Entite implements IAttaque, IInteraction
 
 	Reservoir reservoir;
 
-	int distanceBase;
-	//int distanceMaxParcourue
-	//int distanceTotale
+	//int distanceBase;
 
 	Entite bouclier;
 

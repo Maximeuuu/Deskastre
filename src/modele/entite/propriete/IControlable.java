@@ -1,4 +1,4 @@
-package deskastre.modele.entite;
+package deskastre.modele.entite.propriete;
 
 //import java.awt.Point;
 /**
@@ -7,5 +7,5 @@ package deskastre.modele.entite;
  */
 public interface IControlable
 {
-	//public boolean estSelectionne( Point p );
+
 }

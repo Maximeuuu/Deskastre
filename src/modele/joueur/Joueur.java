@@ -1,26 +1,23 @@
 package deskastre.modele.joueur;
 
-import deskastre.modele.entite.AbstractEntite;
-import deskastre.Constantes;
-
-import java.awt.Point;
-import java.awt.Dimension;
+import deskastre.modele.Constantes;
 
 /**
  * Statistiques sur la partie en cours
  * @autor : Maximeuuu
  */
-public final class Statistique extends AbstractEntite
+public final class Joueur implements IInformation
 {
 	private double distance;
 	private double vitesse;
 	private int carburant;
 	private int asteroide;
 	private int argent;
+	//int distanceMaxParcourue
+	//int distanceTotale
 
-	public Statistique( Point position )
+	public Joueur()
 	{
-		super( position, new Dimension(0,0) );
 		this.distance = 0.0;
 		this.vitesse = 5;
 		this.carburant = 20;
@@ -48,20 +45,4 @@ public final class Statistique extends AbstractEntite
 
 		return sRet;
 	}
-	
-	public void majDimension() //ajouter des paramètres : TailleCaractere, adapter majDimension() et adapter PanelJeu.paintComponent()
-	{
-		int maxWidth=0;
-		int maxHeigth=0;
-		
-		String[] lignes = this.toString().split("\n");
-		for( String ligne : lignes )
-		{
-			if( ligne.length() > maxWidth ){ maxWidth = ligne.length(); }
-			maxHeigth++;
-		}
-		
-		super.setDimension( new Dimension(maxWidth, maxHeigth) );
-	}
-
 }

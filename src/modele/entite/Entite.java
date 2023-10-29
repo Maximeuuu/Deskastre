@@ -1,6 +1,6 @@
 package deskastre.modele.entite;
 
-import deskastre.Constantes;
+import deskastre.VariablesUtilisateur;
 import javax.swing.ImageIcon;
 import java.awt.Point;
 import java.awt.Dimension;
@@ -18,7 +18,7 @@ public class Entite extends AbstractEntite
 	public static final int WEST  = 270;
 
 	private ImageIcon image;
-	private int direction; //angle en degres
+	private int direction; //angle en degres -> probablement à supprimer
 
 	public Entite( Point position, Dimension dimension, String image )
 	{
@@ -28,7 +28,7 @@ public class Entite extends AbstractEntite
 		this.direction = Entite.NORTH;
 	}
 
-	public void setImage( String image ){ this.image = new ImageIcon(Constantes.REP_IMAGE+image); }
+	public void setImage( String image ){ this.image = new ImageIcon(VariablesUtilisateur.REP_IMAGE+image); }
 	public void setImage( ImageIcon image ){ this.image = image; }
 	public void setDirection( int direction ){ this.direction = direction%360; }
 
