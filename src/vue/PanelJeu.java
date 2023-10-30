@@ -74,7 +74,7 @@ public class PanelJeu extends JPanel implements MouseListener
 	private static void drawStatistique( Statistique stat, Graphics2D g2 )
 	{
 		g2.setColor(Color.BLACK); // Couleur du texte
-		String[] lignes = stat.toString().split("\n"); // Sépare la chaîne en lignes
+		String[] lignes = stat.getInformations().split("\n"); // Sépare la chaîne en lignes
 		int y = (int)stat.getY()+g2.getFontMetrics().getHeight();
 		for (String ligne : lignes)
 		{

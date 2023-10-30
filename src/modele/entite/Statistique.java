@@ -36,4 +36,9 @@ public final class Statistique extends AbstractEntite
 		super.setDimension( new Dimension(maxWidth, maxHeigth) );
 	}
 
+	public String getInformations()
+	{
+		return info.toString();
+	}
+
 }
