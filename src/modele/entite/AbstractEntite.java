@@ -34,4 +34,7 @@ public abstract class AbstractEntite extends Point2D.Double
 
 	public Dimension getDimension(){ return this.dimension; }
 	public void setDimension( Dimension dimension ){ this.dimension = dimension; }
+
+	/*@Override //important -> par la suite enlever le "extends Points2D" pcq ça fait n'imp peut etre ??? -> pb vient des listes et equals
+	public boolean equals( Object o ){ return false; }*/
 }

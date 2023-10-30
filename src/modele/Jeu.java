@@ -32,13 +32,48 @@ public class Jeu
 
 		AbstractEntite entite;
 
+		/*entite = new Entite( new Point(0,0), new Dimension(1920,1080), "background/test-fond-vide.png" );
+		this.ensEntite.add( entite );*/
+
 		entite = new Statistique( new Point(20,20), this.statsJoueur );
 		this.ensEntite.add( entite );
 
 		entite = new Vaisseau(  new Point( (int)(Constantes.DIMENSIONS_JEU.getWidth()-700)/2, (int)(Constantes.DIMENSIONS_JEU.getHeight()-500)/2) , new Dimension(700,500), "vaisseaux/vaisseau1.png", 5);
 		this.ensEntite.add( entite );
 
-		entite = new Asteroide( new Point(800,100), new Dimension(250,250), "objets/asteroide.png");
+		entite = new Asteroide( new Point(800,100), new Dimension(70*4,70*4), "objets/asteroide_4.png"); //480/270   70/70
+		((Asteroide)entite).setVelocite(0,1);
+		this.ensEntite.add( entite );
+
+		entite = new Asteroide( new Point(-50,-50), new Dimension(70*4,70*4), "objets/asteroide_2.png");
+		((Asteroide)entite).setVelocite(0.5,0.5);
+		this.ensEntite.add( entite );
+
+		entite = new Asteroide( new Point(900,120), new Dimension(70*4,70*4), "objets/asteroide_3.png");
+		((Asteroide)entite).setVelocite(-0.8,0);
+		this.ensEntite.add( entite );
+
+		entite = new Asteroide( new Point(100,500), new Dimension(70*4,70*4), "objets/asteroide_0.png");
+		((Asteroide)entite).setVelocite(0,0);
+		this.ensEntite.add( entite );
+
+		entite = new Asteroide( new Point(1200,800), new Dimension(70*4,70*4), "objets/asteroide_0.png");
+		((Asteroide)entite).setVelocite(-0.5,-0.1);
+		this.ensEntite.add( entite );
+
+		entite = new Asteroide( new Point(0,0), new Dimension(70*4,70*4), "objets/asteroide_4.png");
+		((Asteroide)entite).setVelocite(0,0);
+		this.ensEntite.add( entite );
+
+		System.out.println( new Point2D.Double(0,0) == new Point2D.Double(0,0) );
+		System.out.println( (new Point2D.Double(0,0)).equals(new Point2D.Double(0,0)) );
+		System.out.println( new Joueur().hashCode() );
+
+		entite = new Asteroide( new Point( (int)(Constantes.DIMENSIONS_JEU.getWidth())-200, (int)(Constantes.DIMENSIONS_JEU.getHeight())-200 ), new Dimension(70*4,70*4), "objets/asteroide_1.png");
+		((Asteroide)entite).setVelocite(0,0);
+		this.ensEntite.add( entite );
+
+		/*entite = new Asteroide( new Point(800,100), new Dimension(250,250), "objets/asteroide.png");
 		((Asteroide)entite).setVelocite(0,1);
 		this.ensEntite.add( entite );
 
@@ -64,11 +99,12 @@ public class Jeu
 
 		entite = new Asteroide( new Point( (int)(Constantes.DIMENSIONS_JEU.getWidth())-200, (int)(Constantes.DIMENSIONS_JEU.getHeight())-200 ), new Dimension(200,200), "objets/asteroide.png");
 		((Asteroide)entite).setVelocite(0,0);
-		this.ensEntite.add( entite );
+		this.ensEntite.add( entite );*/
 	}
 
 	public void actualiser()
 	{
+		int indice = 0;
 		for( AbstractEntite entite : this.ensEntite )
 		{
 			if( entite instanceof IDeplacable )
@@ -80,7 +116,7 @@ public class Jeu
 				{
 					double timefin = System.nanoTime();
 					System.out.println("Destruction d'une entite à "+(timefin - this.tempsDebut)/1_000_000_000.0);
-					this.ensEntite.remove( entite );
+					this.ensEntite.remove( indice );
 				}
 			}
 
@@ -88,6 +124,7 @@ public class Jeu
 			{
 				((Statistique)entite).majDimension();
 			}
+			indice++;
 		}
 		this.statsJoueur.majDistance();
 	}
@@ -105,42 +142,52 @@ public class Jeu
 
 	public boolean zoneCliquee( Point point )
 	{
-		AbstractEntite entite = this.getEntite( point );
+		int indice = this.getIndiceEntite( point );
+		if( indice == -1 ){ System.out.println("entite null"); return false; }
 
-		if( entite == null ){ System.out.println("entite null"); return false; }
-
+		AbstractEntite entite = this.ensEntite.get( indice );
 		if( entite instanceof IDestructible )
 		{
 			((IDestructible)entite).perdrePv();
 
 			if( ((IDestructible)entite).estDetruit() )
 			{
-				System.out.println("Destruction d'une entite");
+				System.out.println("Destruction d'une entite " + entite.toString() );
 				this.statsJoueur.asteroideDetruit();
-				this.ensEntite.remove( entite );
+				this.ensEntite.remove( indice );
 			}
 		}
 		return true;
 	}
 
-	public AbstractEntite getEntite( Point point )
+	public int getIndiceEntite( Point point )
 	{
 		List<AbstractEntite> copieEnsEntite = new ArrayList<>(this.ensEntite);
-		Collections.reverse( copieEnsEntite );
+		Collections.reverse( copieEnsEntite ); // -> pb ?
 
 		//on parcourt dans le sens inverse pour que la premiere image selectionnee soit la derniere posee
+		int indice=copieEnsEntite.size()-1;
 		for( AbstractEntite entite : copieEnsEntite  )
 		{
 			if( entite instanceof IInteraction )
 			{
 				if( ((IInteraction)(entite)).estSelectionne( point ) )
 				{
-					return entite;
+					return indice;
 				}
 			}
+			indice--;
 		}
 
-		return null;
+		return -1;
+	}
+
+	/**
+	 * Méthode à utiliser avec parcimonie car affecter une liste par rapport à cet entite n'est pas possible
+	 **/
+	public AbstractEntite getEntite( Point point )
+	{
+		return this.ensEntite.get( this.getIndiceEntite( point ) );
 	}
 
 	public String getNomEntite( Point point )
