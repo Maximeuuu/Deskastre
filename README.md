@@ -7,11 +7,11 @@ Jeu en java de navigation spaciale.
 
 ### Rôles
 
-- Développeur : @Maximeuuu
-- Conception de jeu : @Maximeuuu
-- Consultante : Caline
+- Conception de jeu : [@Maximeuuu](https://github.com/Maximeuuu)
+- Développeur : [@Maximeuuu](https://github.com/Maximeuuu)
 - Graphiste : Ryoshi
+- Contributrice d'idée : Caline
 
 ### Licence
 
-- MIT License
+- [MIT License](LICENSE)
