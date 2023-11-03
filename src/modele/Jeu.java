@@ -32,13 +32,13 @@ public class Jeu
 
 		AbstractEntite entite;
 
-		/*entite = new Entite( new Point(0,0), new Dimension(1920,1080), "background/test-fond-vide.png" );
+		/*entite = new Entite( new Point(0,0), new Dimension(1920,1080), "background/test-fond-galaxies.jpg" );
 		this.ensEntite.add( entite );*/
 
 		entite = new Statistique( new Point(20,20), this.statsJoueur );
 		this.ensEntite.add( entite );
 
-		entite = new Vaisseau(  new Point( (int)(Constantes.DIMENSIONS_JEU.getWidth()-700)/2, (int)(Constantes.DIMENSIONS_JEU.getHeight()-500)/2) , new Dimension(700,500), "vaisseaux/vaisseau1.png", 5);
+		entite = new Vaisseau(  new Point( (int)(Constantes.DIMENSIONS_JEU.getWidth()-700)/2, (int)(Constantes.DIMENSIONS_JEU.getHeight()-500)/2) , new Dimension((int)(128*4*1.5),128*4), "vaisseaux/vaisseau_3_armed.png", 5);
 		this.ensEntite.add( entite );
 
 		entite = new Asteroide( new Point(800,100), new Dimension(70*4,70*4), "objets/asteroide_4.png"); //480/270   70/70
