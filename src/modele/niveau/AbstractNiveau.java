@@ -1,9 +1,10 @@
 package deskastre.modele.niveau;
 
-public class AbstractNiveau
+public class AbstractNiveau //TODO en cours de modifications !
 {
 	private String nom;
 	private String description;
+	private String background;
 
 	private Integer dureeMinNiveau;
 	private Integer dureeMaxNiveau;
@@ -13,11 +14,15 @@ public class AbstractNiveau
 	private Integer nbMinAsteroideSimultane;
 	private integer nbAsteroideActuel;
 
+
+
+
+
+
 	private double probaActualisation;
 
 
 
-	private String background;
 	private String[] ensImagesAsteroide;
 
 	private double[] ensProbaAsteroide;
