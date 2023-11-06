@@ -17,6 +17,12 @@ src/modele/entite/propriete/IDeplacable.java
 src/modele/entite/propriete/IDestructible.java
 src/modele/entite/propriete/IInteraction.java
 
+src/modele/entite/regles/AbstractRegles.java
+src/modele/entite/regles/ReglesAsteroide.java
+
+src/modele/niveau/AbstractNiveau.java
+src/modele/niveau/Niveau1.java
+
 src/modele/joueur/IInformation.java
 src/modele/joueur/Joueur.java
 

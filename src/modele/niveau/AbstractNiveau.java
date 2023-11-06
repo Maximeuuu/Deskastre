@@ -1,35 +1,40 @@
 package deskastre.modele.niveau;
 
-public class AbstractNiveau //TODO en cours de modifications !
+import deskastre.modele.entite.regles.*;
+
+import java.util.List;
+import java.awt.Image;
+
+public abstract class AbstractNiveau //TODO en cours de création
 {
-	private String nom;
-	private String description;
-	private String background;
+	protected String nom;
+	protected String description;
+	protected String background;
 
-	private Integer dureeMinNiveau;
-	private Integer dureeMaxNiveau;
-	private int tempsEcouleNiveau;
+	protected Integer dureeMinNiveau;
+	protected Integer dureeMaxNiveau;
+	protected int tempsEcouleNiveau;
 
-	private Integer nbMaxAsteroideSimultane;
-	private Integer nbMinAsteroideSimultane;
-	private integer nbAsteroideActuel;
+	protected Integer nbMaxAsteroideSimultane;
+	protected Integer nbMinAsteroideSimultane;
+	protected Integer nbAsteroideActuel;
 
-
-
-
-
-
-	private double probaActualisation;
+	protected List<AbstractRegles> ensRegles; //jsp
+	protected List<Image> ensImage; // images générée une fois à réutiliser pour chaque entites
+	
+	protected double probaActualisation; //proba de passer à un niveau suivant (?)
 
 
-
+/* // anciens attributs à remplacer par ceux au dessus
 	private String[] ensImagesAsteroide;
 
 	private double[] ensProbaAsteroide;
 
 	private int nbAsteroideActuel;
 	private boolean active;
-	private int nbAsteroideTotal;
+	private int nbAsteroideTotal;*/
+	
+	public void addRegle( AbstractRegles regle ){ this.ensRegles.add( regle ); }
 
 	public AbstractNiveau( double probaActualisation )
 	{
@@ -42,18 +47,17 @@ public class AbstractNiveau //TODO en cours de modifications !
 		this.description = description;
 	}
 
-	public void setStyle( String background, String[] ensImagesAsteroide )
+	public void setStyle( String background )
 	{
 		this.background = background;
-		this.ensImagesAsteroide = ensImagesAsteroide;
 	}
 
-	public void setPropriete( double[] ensProbaAsteroide )
+	/*public void setPropriete( double[] ensProbaAsteroide )
 	{
 		this.ensProbaAsteroide = ensProbaAsteroide;
-	}
+	}*/
 
-	public void actualiser();
-	public boolean estTermine();
+	public abstract void actualiser();
+	public abstract boolean estTermine();
 
 }

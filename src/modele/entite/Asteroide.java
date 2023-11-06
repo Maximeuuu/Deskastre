@@ -14,12 +14,14 @@ import java.awt.Dimension;
  */
 public class Asteroide extends Entite implements IDeplacable, IInteraction, IDestructible
 {
+	//private Proprietes proprietes; -> ensemble de règles que doit respecter l'entite
 	private double velociteX;
 	private double velociteY;
 	private Polygon masque;
 	private int pvActuel;
 	private int pvMax;
 
+	//TODO : enlever la dimension et passer en paramètre une Image générée et stockée avant
 	public Asteroide( Point position, Dimension dimension, String image )
 	{
 		super( position, dimension, image );
