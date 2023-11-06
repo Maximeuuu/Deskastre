@@ -1,5 +1,3 @@
-package deskastre.modele.entite.regles;
-
 import java.awt.Image;
 
 /**
@@ -16,7 +14,7 @@ public class ReglesAsteroide extends AbstractRegles
 	private double velociteYMin;
 	private double velociteYMax;
 	
-	public ReglesAsteroide( Image[] images, double pa, int pvMin, int pvMax, double vxMin, double vxMax, double vyMin, double vyMax )
+	public ReglesAsteroide( String[] images, double pa, int pvMin, int pvMax, double vxMin, double vxMax, double vyMin, double vyMax )
 	{
 		super( images );
 		this.probaApparition = pa;

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<livre>
+    <titre>Le Guide de Java</titre>
+    <auteur>John Doe</auteur>
+    <annee>2023</annee>
+    <editeur>Éditions Tech</editeur>
+</livre>
+

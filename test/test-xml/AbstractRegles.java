@@ -1,5 +1,3 @@
-package deskastre.modele.entite.regles;
-
 import java.awt.Image;
 
 /**
@@ -9,21 +7,21 @@ import java.awt.Image;
  */
 public abstract class AbstractRegles
 {
-	protected Image[] images;
+	protected String[] images;
 	//private boolean attaquable; //controlable ...
 	
-	public AbstractRegles( Image[] images )
+	public AbstractRegles( String[] images )
 	{
 		this.images = images;
 	}
 	
-	public AbstractRegles( Image image )
+	public AbstractRegles( String image )
 	{
-		this.images = new Image[1];
+		this.images = new String[1];
 		this.images[0] = image;
 	}
 	
-	public Image getImage()
+	public String getImage()
 	{
 		int indice = (int)( Math.random() * images.length );
 		return this.images[indice];

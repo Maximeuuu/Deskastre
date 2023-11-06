@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<asteroide>
+    <images>
+        <image>chemin_image_1.jpg</image>
+        <image>chemin_image_2.jpg</image>
+        <!-- Ajoutez autant d'images que nécessaire -->
+    </images>
+    <probaApparition>0.5</probaApparition>
+    <pvMin>10</pvMin>
+    <pvMax>100</pvMax>
+    <vxMin>1.0</vxMin>
+    <vxMax>5.0</vxMax>
+    <vyMin>0.5</vyMin>
+    <vyMax>2.0</vyMax>
+</asteroide>
+
