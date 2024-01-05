@@ -1,31 +1,31 @@
-src/Controleur.java
-src/VariablesUtilisateur.java
+src/deskastre/Controleur.java
+src/deskastre/VariablesUtilisateur.java
 
-src/modele/Jeu.java
-src/modele/Constantes.java
+src/deskastre/modele/Jeu.java
+src/deskastre/modele/Constantes.java
 
-src/modele/entite/AbstractEntite.java
-src/modele/entite/Entite.java
-src/modele/entite/Asteroide.java
-src/modele/entite/Vaisseau.java
-src/modele/entite/OutilsImage.java
-src/modele/entite/Statistique.java
+src/deskastre/modele/entite/AbstractEntite.java
+src/deskastre/modele/entite/Entite.java
+src/deskastre/modele/entite/Asteroide.java
+src/deskastre/modele/entite/Vaisseau.java
+src/deskastre/modele/entite/OutilsImage.java
+src/deskastre/modele/entite/Statistique.java
 
-src/modele/entite/propriete/IAttaque.java
-src/modele/entite/propriete/IControlable.java
-src/modele/entite/propriete/IDeplacable.java
-src/modele/entite/propriete/IDestructible.java
-src/modele/entite/propriete/IInteraction.java
+src/deskastre/modele/entite/propriete/IAttaque.java
+src/deskastre/modele/entite/propriete/IControlable.java
+src/deskastre/modele/entite/propriete/IDeplacable.java
+src/deskastre/modele/entite/propriete/IDestructible.java
+src/deskastre/modele/entite/propriete/IInteraction.java
 
-src/modele/entite/regles/AbstractRegles.java
-src/modele/entite/regles/ReglesAsteroide.java
+src/deskastre/modele/entite/regles/AbstractRegles.java
+src/deskastre/modele/entite/regles/ReglesAsteroide.java
 
-src/modele/niveau/AbstractNiveau.java
-src/modele/niveau/Niveau1.java
+src/deskastre/modele/niveau/AbstractNiveau.java
+src/deskastre/modele/niveau/Niveau1.java
 
-src/modele/joueur/IInformation.java
-src/modele/joueur/Joueur.java
+src/deskastre/modele/joueur/IInformation.java
+src/deskastre/modele/joueur/Joueur.java
 
-src/vue/ConfigurationMaterielle.java
-src/vue/FenetreJeu.java
-src/vue/PanelJeu.java
+src/deskastre/vue/ConfigurationMaterielle.java
+src/deskastre/vue/FenetreJeu.java
+src/deskastre/vue/PanelJeu.java

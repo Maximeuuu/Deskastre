@@ -1,3 +1,3 @@
 javac @option.list @compile.list
-cd out
+cd class
 java deskastre.Controleur
