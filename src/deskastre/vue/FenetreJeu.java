@@ -2,7 +2,6 @@ package deskastre.vue;
 
 import deskastre.Controleur;
 
-import java.awt.*;
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.event.*;

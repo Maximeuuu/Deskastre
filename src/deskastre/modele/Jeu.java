@@ -3,7 +3,6 @@ package deskastre.modele;
 import deskastre.modele.entite.*;
 import deskastre.modele.entite.propriete.*;
 import deskastre.modele.joueur.*;
-import deskastre.modele.Constantes;
 
 import java.util.List;
 import java.util.Collections;

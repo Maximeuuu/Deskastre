@@ -4,7 +4,6 @@ import deskastre.VariablesUtilisateur;
 import javax.swing.ImageIcon;
 import java.awt.Point;
 import java.awt.Dimension;
-import java.awt.Image;
 
 /**
  * Objet simple du jeu

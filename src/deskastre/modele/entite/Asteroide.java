@@ -4,7 +4,6 @@ import deskastre.modele.Constantes;
 import deskastre.modele.entite.propriete.*;
 
 import java.awt.Point;
-import java.awt.geom.Point2D;
 import java.awt.Polygon;
 import java.awt.Dimension;
 
