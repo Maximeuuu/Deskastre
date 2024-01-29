@@ -9,7 +9,6 @@ import java.awt.Dimension;
  */
 public abstract class Constantes
 {
-	public static final String REP_IMAGE = "./../lib/images/"; //à deplacer dans un fichier VariableUtilisateur
 	//repAsteroide //repVaisseau...
 
 	public static final Dimension DIMENSIONS_JEU = new Dimension(1920,1080);

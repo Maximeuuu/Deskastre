@@ -1,3 +1,2 @@
 javac @option.list @compile.list
-cd class
-java deskastre.Controleur
+java -cp 'class:.' deskastre.Controleur

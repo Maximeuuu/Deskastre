@@ -1,8 +1,6 @@
 package deskastre.modele.entite;
 
-import deskastre.modele.entite.AbstractEntite;
 import deskastre.modele.joueur.IInformation;
-import deskastre.modele.joueur.Joueur;
 
 import java.awt.Point;
 import java.awt.Dimension;

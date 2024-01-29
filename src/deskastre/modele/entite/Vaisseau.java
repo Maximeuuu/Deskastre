@@ -23,7 +23,7 @@ public class Vaisseau extends Entite implements IAttaque, IInteraction
 
 	Entite bouclier;
 
-	public Vaisseau(  Point position, Dimension dimension, String image, int degat )
+	public Vaisseau( Point position, Dimension dimension, String image, int degat )
 	{
 		super( position, dimension, image );
 

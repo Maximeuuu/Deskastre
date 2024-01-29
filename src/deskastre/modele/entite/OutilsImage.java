@@ -1,12 +1,12 @@
 package deskastre.modele.entite; //package "outil" par la suite ?
 
-import deskastre.modele.Constantes;
+import deskastre.VariablesUtilisateur;
 
 import java.awt.*;
 import javax.swing.*;
 import javax.imageio.ImageIO;
 import java.io.IOException;
-import java.io.File;
+import java.net.URL;
 import java.awt.image.BufferedImage;
 
 /**
@@ -23,7 +23,8 @@ public final class OutilsImage
 	{
 		try
 		{
-			BufferedImage imgOrigine = ImageIO.read(new File(Constantes.REP_IMAGE + image));
+			URL url = OutilsImage.class.getResource( VariablesUtilisateur.REP_IMAGE + image );
+			BufferedImage imgOrigine = ImageIO.read( url );
 			Image imgResize = imgOrigine.getScaledInstance((int) dimension.getWidth(), (int) dimension.getHeight(), Image.SCALE_SMOOTH);
 			return new ImageIcon(imgResize);
 		}
