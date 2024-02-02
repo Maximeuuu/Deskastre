@@ -1,3 +1,4 @@
-public class ReglesNiveau {
+public class ParametresNiveau
+{
 	
 }
