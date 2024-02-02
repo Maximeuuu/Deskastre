@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<regles>
+<parametres>
 
 	<niveau>
 		<background>chemin_image.jpg</background>
@@ -14,7 +14,7 @@
 			</images>
 			<repartition>
 				<min>
-					<posX>100</posX> <!-- en % d'écran ? -->
+					<posX>100</posX> <!-- en % d'écran -->
 					<posY>0</posY>
 					<pv>10</pv> 
 					<vx>1.0</vx>
@@ -134,4 +134,4 @@
 
 	</asteroides>
 
-</regles>
+</parametres>
