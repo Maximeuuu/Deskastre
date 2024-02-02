@@ -14,16 +14,16 @@
 			</images>
 			<repartition>
 				<min>
-					<posX>w</posX>
+					<posX>100</posX> <!-- en % d'écran ? -->
 					<posY>0</posY>
-					<pv>10</pv>
+					<pv>10</pv> 
 					<vx>1.0</vx>
 					<vy>0.5</vy>
 					<loot>0</loot>
 				</min>
 				<max>
-					<posX>w</posX>
-					<posY>h</posY>
+					<posX>100</posX>
+					<posY>100</posY>
 					<pv>100</pv>
 					<vx>5.0</vx>
 					<vy>2.0</vy>
@@ -39,7 +39,7 @@
 			</images>
 			<repartition>
 				<min>
-					<posX>w</posX>
+					<posX>100</posX>
 					<posY>0</posY>
 					<pv>10</pv>
 					<vx>1.0</vx>
@@ -47,8 +47,8 @@
 					<loot>1</loot>
 				</min>
 				<max>
-					<posX>w</posX>
-					<posY>h</posY>
+					<posX>100</posX>
+					<posY>100</posY>
 					<pv>100</pv>
 					<vx>5.0</vx>
 					<vy>2.0</vy>
@@ -64,7 +64,7 @@
 			</images>
 			<repartition>
 				<min>
-					<posX>w</posX>
+					<posX>100</posX>
 					<posY>0</posY>
 					<pv>10</pv>
 					<vx>1.0</vx>
@@ -89,7 +89,7 @@
 			</images>
 			<repartition>
 				<min>
-					<posX>w</posX>
+					<posX>100</posX>
 					<posY>0</posY>
 					<pv>10</pv>
 					<vx>1.0</vx>
@@ -97,8 +97,8 @@
 					<loot>1</loot>
 				</min>
 				<max>
-					<posX>w</posX>
-					<posY>h</posY>
+					<posX>100</posX>
+					<posY>100</posY>
 					<pv>100</pv>
 					<vx>5.0</vx>
 					<vy>2.0</vy>
@@ -114,7 +114,7 @@
 			</images>
 			<repartition>
 				<min>
-					<posX>w</posX>
+					<posX>100</posX>
 					<posY>0</posY>
 					<pv>10</pv>
 					<vx>1.0</vx>
@@ -122,8 +122,8 @@
 					<loot>0</loot>
 				</min>
 				<max>
-					<posX>w</posX>
-					<posY>h</posY>
+					<posX>100</posX>
+					<posY>100</posY>
 					<pv>100</pv>
 					<vx>5.0</vx>
 					<vy>2.0</vy>
