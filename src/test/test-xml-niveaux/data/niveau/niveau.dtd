@@ -1,0 +1,19 @@
+<!ELEMENT niveau (informations, proprietes, conditions, asteroides)>
+
+	<!ELEMENT informations (titre, description)>
+		<!ELEMENT titre (#PCDATA)>
+		<!ELEMENT description (#PCDATA)>
+
+	<!ELEMENT proprietes (background)>
+		<!ELEMENT background (#PCDATA)>
+
+	<!ELEMENT conditions (duree?, points?, asteroides?)>
+		<!ELEMENT duree (#PCDATA)>
+		<!ELEMENT points (#PCDATA)>
+		<!ELEMENT asteroides (#PCDATA)>
+
+	<!ELEMENT asteroides (apparition+)>
+		<!ELEMENT apparition (#PCDATA)>
+			<!ATTLIST apparition pourcentage CDATA #REQUIRED>
+			<!ENTITY % asteroidesDTD SYSTEM "D:\mamax\Documents\_PROGRAMMATION\GITHUB\Deskastre\src\test\test-xml-niveaux\data\asteroides\asteroides.dtd">
+			%asteroidesDTD;

@@ -1,0 +1,14 @@
+<!ELEMENT asteroide (images, repartition)>
+
+	<!ELEMENT images (image+)>
+		<!ELEMENT image (#PCDATA)>
+
+	<!ELEMENT repartition (min, max)>
+		<!ELEMENT min (posX, posY, pv, vx, vy, loot)>
+		<!ELEMENT max (posX, posY, pv, vx, vy, loot)>
+			<!ELEMENT posX (#PCDATA)>
+			<!ELEMENT posY (#PCDATA)>
+			<!ELEMENT pv (#PCDATA)>
+			<!ELEMENT vx (#PCDATA)>
+			<!ELEMENT vy (#PCDATA)>
+			<!ELEMENT loot (#PCDATA)>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE niveau SYSTEM "niveau.dtd">
+
+<niveau>
+
+	<informations>
+		<titre>Niveau 1</titre>
+		<description>Un niveau de test</description>
+	</informations>
+
+	<proprietes>
+		<background>chemin_image.jpg</background>
+		<!--<musique>chemin_musique.mp3</musique>-->
+	</proprietes>
+
+	<conditions>
+		<duree>100</duree>
+		<points>1000</points>
+		<asteroides>10</asteroides>
+	</conditions>
+
+	<asteroides> <!-- obstacles -->
+		<apparition pourcentage="20">
+			&ast1;
+			&ast2;
+			&ast3;
+			&ast4;
+			&ast5;
+		</apparition>
+	</asteroides>
+
+</niveau>

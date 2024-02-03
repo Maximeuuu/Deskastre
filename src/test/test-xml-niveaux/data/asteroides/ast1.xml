@@ -1,0 +1,28 @@
+<!--<?xml version="1.0" encoding="UTF-8" standalone="yes"?>-->
+<asteroide>
+
+	<images>
+		<image>chemin_image_1.jpg</image>
+		<image>chemin_image_2.jpg</image>
+	</images>
+	
+	<repartition>
+		<min>
+			<posX>100</posX> <!-- en % d'écran -->
+			<posY>0</posY>
+			<pv>10</pv> 
+			<vx>1.0</vx>
+			<vy>0.5</vy>
+			<loot>0</loot>
+		</min>
+		<max>
+			<posX>100</posX>
+			<posY>100</posY>
+			<pv>100</pv>
+			<vx>5.0</vx>
+			<vy>2.0</vy>
+			<loot>0</loot>
+		</max>
+	</repartition>
+	
+</asteroide>

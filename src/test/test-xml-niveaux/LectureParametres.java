@@ -12,7 +12,7 @@ public class LectureParametres
 		//FIXME: ajouter le chemin relatif du projet avant avec URL
 		
 		this.fichierXML = new File( nomFichier );
-		Document document LectureParametres.ouvrirFichierXML( this.fichierXML );
+		Document document = LectureParametres.ouvrirFichierXML( this.fichierXML );
 		this.racine = document.getDocumentElement();
 		
 		

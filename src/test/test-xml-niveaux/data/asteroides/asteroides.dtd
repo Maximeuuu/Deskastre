@@ -1,0 +1,5 @@
+<!ENTITY % ast1 SYSTEM "ast1.xml">
+<!ENTITY % ast2 SYSTEM "ast2.xml">
+<!ENTITY % ast3 SYSTEM "ast3.xml">
+<!ENTITY % ast4 SYSTEM "ast4.xml">
+<!ENTITY % ast5 SYSTEM "ast5.xml">
