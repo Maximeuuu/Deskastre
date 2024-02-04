@@ -6,7 +6,7 @@
 		<image>chemin_image_2.jpg</image>
 	</images>
 	
-	<repartition>
+	<repartition> <!-- la structure à l'interieure sera probablement à changer -->
 		<min>
 			<posX>100</posX> <!-- en % d'écran -->
 			<posY>0</posY>

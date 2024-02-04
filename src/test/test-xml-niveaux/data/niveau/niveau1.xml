@@ -14,19 +14,25 @@
 	</proprietes>
 
 	<conditions>
-		<duree>100</duree>
-		<points>1000</points>
-		<asteroides>10</asteroides>
+		<dureeMax>100</duree>
+		<pointsMax>1000</points>
+		<asteroidesMax>10</asteroides>
 	</conditions>
 
-	<asteroides> <!-- obstacles -->
-		<apparition pourcentage="20">
-			&ast1;
-			&ast2;
-			&ast3;
-			&ast4;
-			&ast5;
-		</apparition>
+	<apparition>
+		<cycle unite="ms">1000</cycle> <!-- temps entre chaque apparition -->
+		<probabilite>0.5</probabilite> <!-- probabilité d'apparition d'un asteroide -->
+		<min>0</min> <!-- nombre d'asteroides min sur l'écran -->
+		<max>5</max> <!-- nombre d'asteroides max sur l'écran -->
+	</apparition>
+
+	<asteroides> <!-- futur nom : obstacles ? -->
+		<!-- remplacer par juste le nom de l'asteroide ? "ast1" -->
+		<asteroide probabilite="0.2">asteroides/ast1.xml</asteroide>
+		<asteroide probabilite="0.2">asteroides/ast2.xml</asteroide>
+		<asteroide probabilite="0.2">asteroides/ast3.xml</asteroide>
+		<asteroide probabilite="0.2">asteroides/ast4.xml</asteroide>
+		<asteroide probabilite="0.2">asteroides/ast5.xml</asteroide>
 	</asteroides>
 
 </niveau>
