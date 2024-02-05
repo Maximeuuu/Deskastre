@@ -4,6 +4,7 @@ import deskastre.VariablesUtilisateur;
 import deskastre.modele.entite.*;
 import deskastre.modele.entite.propriete.*;
 import deskastre.modele.joueur.*;
+import deskastre.modele.outil.OutilsImage;
 
 import java.util.List;
 import java.util.Collections;
@@ -13,7 +14,6 @@ import java.util.concurrent.CopyOnWriteArrayList; //listes thread-safe
 import javax.swing.ImageIcon;
 
 import java.awt.*;
-import java.awt.geom.Point2D;
 
 /**
  * Classe principale qui genere une partie
@@ -49,37 +49,37 @@ public class Jeu
 		this.ensEntite.add( entite );
 
 
-		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + "objets/asteroide_4.png" );
+		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + "objets/asteroide_1.png" );
 		masque = OutilsImage.getMasqueImage( image );
 		entite = new Asteroide( new Point(800,100), image, masque );
 		((Asteroide)entite).setVelocite(0,1);
 		this.ensEntite.add( entite );
 
-		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + "objets/asteroide_2.png" );
+		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + "objets/asteroide_3.png" );
 		masque = OutilsImage.getMasqueImage( image );
 		entite = new Asteroide( new Point(-50,-50), image, masque );
 		((Asteroide)entite).setVelocite(0.5,0.5);
 		this.ensEntite.add( entite );
 
-		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + "objets/asteroide_3.png" );
+		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + "objets/asteroide_2.png" );
 		masque = OutilsImage.getMasqueImage( image );
 		entite = new Asteroide( new Point(900,120), image, masque );
 		((Asteroide)entite).setVelocite(-0.8,0);
 		this.ensEntite.add( entite );
 
-		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + "objets/asteroide_0.png" );
+		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + "objets/asteroide_5.png" );
 		masque = OutilsImage.getMasqueImage( image );
 		entite = new Asteroide( new Point(100,500), image, masque );
 		((Asteroide)entite).setVelocite(0,0);
 		this.ensEntite.add( entite );
 
-		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + "objets/asteroide_0.png" );
+		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + "objets/asteroide_5.png" );
 		masque = OutilsImage.getMasqueImage( image );
 		entite = new Asteroide( new Point(1200,800), image, masque );
 		((Asteroide)entite).setVelocite(-0.5,-0.1);
 		this.ensEntite.add( entite );
 
-		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + "objets/asteroide_4.png" );
+		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + "objets/asteroide_1.png" );
 		masque = OutilsImage.getMasqueImage( image );
 		entite = new Asteroide( new Point(0,0), image, masque );
 		((Asteroide)entite).setVelocite(0,0);
@@ -88,7 +88,7 @@ public class Jeu
 		//System.out.println( (new Point2D.Double(0,0)).equals(new Point2D.Double(0,0)) );
 		//System.out.println( new Joueur().hashCode() );
 
-		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + "objets/asteroide_1.png" );
+		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + "objets/asteroide_4.png" );
 		masque = OutilsImage.getMasqueImage( image );
 		entite = new Asteroide( new Point( (int)(Constantes.DIMENSIONS_JEU.getWidth())-200, (int)(Constantes.DIMENSIONS_JEU.getHeight())-200 ), image, masque );
 		((Asteroide)entite).setVelocite(0,0);

@@ -1,0 +1,22 @@
+<!ELEMENT niveau (informations, proprietes, conditions, apparition, asteroides)>
+
+	<!ELEMENT informations (titre, description)>
+		<!ELEMENT titre (#PCDATA)>
+		<!ELEMENT description (#PCDATA)>
+
+	<!ELEMENT proprietes (background)>
+		<!ELEMENT background (#PCDATA)>
+
+	<!ELEMENT conditions (duree?, points?, asteroides?)>
+		<!ELEMENT dureeMax (#PCDATA)>
+		<!ELEMENT pointsMax (#PCDATA)>
+		<!ELEMENT asteroidesMax (#PCDATA)>
+
+	<!ELEMENT apparition (cycle, probabilite, min, max)>
+		<!ELEMENT cycle (#PCDATA)> <!ATTLIST cycle unite CDATA #REQUIRED>
+		<!ELEMENT probabilite (#PCDATA)>
+		<!ELEMENT min (#PCDATA)>
+		<!ELEMENT max (#PCDATA)>
+
+	<!ELEMENT asteroides (asteroide+)>
+		<!ELEMENT asteroide (#PCDATA)> <!ATTLIST asteroide probabilite CDATA #REQUIRED>

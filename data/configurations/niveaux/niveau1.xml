@@ -28,11 +28,11 @@
 
 	<asteroides> <!-- futur nom : obstacles ? -->
 		<!-- remplacer par juste le nom de l'asteroide ? "ast1" -->
-		<asteroide probabilite="0.2">ast1.xml</asteroide>
-		<asteroide probabilite="0.2">ast2.xml</asteroide>
-		<asteroide probabilite="0.2">ast3.xml</asteroide>
-		<asteroide probabilite="0.2">ast4.xml</asteroide>
-		<asteroide probabilite="0.2">ast5.xml</asteroide>
+		<asteroide probabilite="0.2">asteroides/ast1.xml</asteroide>
+		<asteroide probabilite="0.2">asteroides/ast2.xml</asteroide>
+		<asteroide probabilite="0.2">asteroides/ast3.xml</asteroide>
+		<asteroide probabilite="0.2">asteroides/ast4.xml</asteroide>
+		<asteroide probabilite="0.2">asteroides/ast5.xml</asteroide>
 	</asteroides>
 
 </niveau>

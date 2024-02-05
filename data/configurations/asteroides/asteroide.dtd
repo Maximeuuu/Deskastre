@@ -1,0 +1,24 @@
+<!ELEMENT asteroide (images, repartition)>
+
+	<!ELEMENT images (image+)>
+		<!ELEMENT image (#PCDATA)>
+
+	<!ELEMENT repartition (posX, posY, vx, vy, pv, loot)>
+		<!ELEMENT posX (#PCDATA)>
+			<!ATTLIST posX min CDATA #REQUIRED>
+			<!ATTLIST posX max CDATA #REQUIRED>
+		<!ELEMENT posY (#PCDATA)>
+			<!ATTLIST posY min CDATA #REQUIRED>
+			<!ATTLIST posY max CDATA #REQUIRED>
+		<!ELEMENT vx (#PCDATA)>
+			<!ATTLIST vx min CDATA #REQUIRED>
+			<!ATTLIST vx max CDATA #REQUIRED>
+		<!ELEMENT vy (#PCDATA)>
+			<!ATTLIST vy min CDATA #REQUIRED>
+			<!ATTLIST vy max CDATA #REQUIRED>
+		<!ELEMENT pv (#PCDATA)>
+			<!ATTLIST pv min CDATA #REQUIRED>
+			<!ATTLIST pv max CDATA #REQUIRED>
+		<!ELEMENT loot (#PCDATA)>
+			<!ATTLIST loot min CDATA #REQUIRED>
+			<!ATTLIST loot max CDATA #REQUIRED>

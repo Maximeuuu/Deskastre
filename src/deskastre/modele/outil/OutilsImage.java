@@ -1,4 +1,4 @@
-package deskastre.modele.entite; //package "outil" par la suite ?
+package deskastre.modele.outil; //package "outil" par la suite ?
 
 import java.awt.*;
 import javax.swing.*;

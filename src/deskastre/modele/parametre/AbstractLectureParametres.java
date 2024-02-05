@@ -1,8 +1,13 @@
-package test.testxmlniveaux;
+package deskastre.modele.parametre;
 
 import org.w3c.dom.*;
+
+import deskastre.modele.outil.OutilsImage;
+
 import javax.xml.parsers.*;
 import java.io.File;
+import java.net.URL;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,14 +16,22 @@ public class AbstractLectureParametres
 	protected Document documentXML;
 	protected Element racine;
 	
-	public AbstractLectureParametres( String cheminRelatifFichier )
+	public AbstractLectureParametres( String cheminFichier )
 	{
 		//FIXME: ajouter le chemin relatif du projet avant avec URL
-		
-		
-		File fichierXML = new File( cheminRelatifFichier );
-		this.documentXML = AbstractLectureParametres.ouvrirFichierXML( fichierXML );
-		this.racine = this.documentXML.getDocumentElement();
+		try
+		{
+			URL url = AbstractLectureParametres.class.getResource( cheminFichier );
+			URI uri = url.toURI();
+
+			File fichierXML = new File( uri );
+			this.documentXML = AbstractLectureParametres.ouvrirFichierXML( fichierXML );
+			this.racine = this.documentXML.getDocumentElement();
+		}
+		catch( Exception e )
+		{
+			e.printStackTrace( );
+		}
 	}
 	
 	private static Document ouvrirFichierXML( File fichierXML )
