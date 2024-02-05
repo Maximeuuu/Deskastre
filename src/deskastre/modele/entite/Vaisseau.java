@@ -3,8 +3,10 @@ package deskastre.modele.entite;
 import deskastre.modele.entite.propriete.*;
 
 import java.awt.Polygon;
+
+import javax.swing.ImageIcon;
+
 import java.awt.Point;
-import java.awt.Dimension;
 
 /**
  * Entite correspondant au joueur
@@ -23,14 +25,14 @@ public class Vaisseau extends Entite implements IAttaque, IInteraction
 
 	Entite bouclier;
 
-	public Vaisseau( Point position, Dimension dimension, String image, int degat )
+	public Vaisseau( Point position, ImageIcon image, Polygon masque, int degat )
 	{
-		super( position, dimension, image );
+		super( position, image );
 
 		this.degat = degat;
 		this.velociteX = 0;
 		this.velociteY = 0;
-		this.masque = OutilsImage.getPolygoneSimplifie( OutilsImage.getMasqueImage( super.getImage() ) );
+		this.masque = masque;
 	}
 
 	public int getPuissanceAttaque(){ return this.degat; }

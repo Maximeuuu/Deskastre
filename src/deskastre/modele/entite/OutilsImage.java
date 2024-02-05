@@ -1,7 +1,5 @@
 package deskastre.modele.entite; //package "outil" par la suite ?
 
-import deskastre.VariablesUtilisateur;
-
 import java.awt.*;
 import javax.swing.*;
 import javax.imageio.ImageIO;
@@ -19,11 +17,11 @@ public final class OutilsImage
 	 * Génère une ImageIcon redimensionnée à partir de son nom et d'une dimension
 	 * @autor : Maximeuuu
 	 */
-	public static ImageIcon getResizeImage( Dimension dimension, String image )
+	public static ImageIcon getResizeImage( Dimension dimension, String cheminImage )
 	{
 		try
 		{
-			URL url = OutilsImage.class.getResource( VariablesUtilisateur.REP_IMAGE + image );
+			URL url = OutilsImage.class.getResource( cheminImage );
 			BufferedImage imgOrigine = ImageIO.read( url );
 			Image imgResize = imgOrigine.getScaledInstance((int) dimension.getWidth(), (int) dimension.getHeight(), Image.SCALE_SMOOTH);
 			return new ImageIcon(imgResize);

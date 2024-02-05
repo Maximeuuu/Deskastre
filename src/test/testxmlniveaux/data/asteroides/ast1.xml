@@ -7,22 +7,14 @@
 	</images>
 	
 	<repartition> <!-- la structure à l'interieure sera probablement à changer -->
-		<min>
-			<posX>100</posX> <!-- en % d'écran -->
-			<posY>0</posY>
-			<pv>10</pv> 
-			<vx>1.0</vx>
-			<vy>0.5</vy>
-			<loot>0</loot>
-		</min>
-		<max>
-			<posX>100</posX>
-			<posY>100</posY>
-			<pv>100</pv>
-			<vx>5.0</vx>
-			<vy>2.0</vy>
-			<loot>0</loot>
-		</max>
+
+		<posX min="100" max="100"/> <!-- en % d'écran -->
+		<posY min="0" max="100"/>
+		<vx min="1.0" max="5.0"/>
+		<vy min="0.5" max="2.0"/>
+		<pv min="10" max="100"/>
+		<loot min="0" max="0"/>
+
 	</repartition>
 	
 </asteroide>

@@ -14,9 +14,9 @@
 	</proprietes>
 
 	<conditions>
-		<dureeMax>100</duree>
-		<pointsMax>1000</points>
-		<asteroidesMax>10</asteroides>
+		<dureeMax>100</dureeMax>
+		<pointsMax>1000</pointsMax>
+		<asteroidesMax>10</asteroidesMax>
 	</conditions>
 
 	<apparition>
