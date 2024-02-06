@@ -10,7 +10,7 @@ public final class Joueur implements IInformation
 {
 	private double distance;
 	private double vitesse;
-	private int carburant;
+	private double carburant;
 	private int asteroide;
 	private int argent;
 	//int distanceMaxParcourue
@@ -20,7 +20,8 @@ public final class Joueur implements IInformation
 	{
 		this.distance = 0.0;
 		this.vitesse = 5;
-		this.carburant = 20;
+		this.carburant = 10;
+		//this.consommation...
 		this.asteroide = 0;
 		this.argent = 0;
 	}
@@ -31,15 +32,20 @@ public final class Joueur implements IInformation
 	public void majDistance()
 	{
 		double tempsEnSecondes = Constantes.TEMPS / 1000.0; // Conversion en secondes
-    	this.distance += this.vitesse * tempsEnSecondes;
+		this.distance += this.vitesse * tempsEnSecondes;
 	} //par la suite sera surement faux
+	
+	public void majConsommation( double conso )
+	{
+		this.carburant += conso;
+	}
 
 	public String toString()
 	{
 		String sRet = "Stats : \n" +
 			" - distance : " + String.format("%.2f m", this.distance) +
 			"\n - vitesse : " + String.format("%.2f m/s", this.vitesse) +
-			"\n - carburant : " + String.format("%d litres", this.carburant) +
+			"\n - carburant : " + String.format("%.1f litres", this.carburant) +
 			"\n - metaux : " + String.format("%d asteroides", this.asteroide) +
 			"\n - argent : " + String.format("%d €", this.argent);
 

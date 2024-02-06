@@ -14,12 +14,11 @@ import java.awt.Point;
  */
 public class Vaisseau extends Entite implements IAttaque, IInteraction
 {
-	int degat;
-	int velociteX;
-	int velociteY;
-	Polygon masque;
-
-	Reservoir reservoir;
+	private int degat;
+	private int velociteX;
+	private int velociteY;
+	private Polygon masque;
+	public Reservoir reservoir;
 
 	//int distanceBase;
 
@@ -33,12 +32,20 @@ public class Vaisseau extends Entite implements IAttaque, IInteraction
 		this.velociteX = 0;
 		this.velociteY = 0;
 		this.masque = masque;
+		
+		this.reservoir = new Reservoir(10);
+		this.reservoir.remplir();
 	}
 
 	public int getPuissanceAttaque(){ return this.degat; }
 	public void setPuissanceAttaque( int degat ){ this.degat = degat; }
 
-	public boolean estSelectionne( Point p ){ return masque.contains( p ); }
+	public boolean estSelectionne( Point p )
+	{
+		Point p2 = new Point( p );
+		p2.translate( (int)(-super.getX()), (int)(-super.getY()) ); //les masques sont places en (0,0) donc on se met a l'origine du repere de la fenetre
+		return masque.contains( p2 );
+	}
 
 
 
@@ -76,6 +83,13 @@ public class Vaisseau extends Entite implements IAttaque, IInteraction
 		{
 			if( volume < 0 || (this.carburant+volume) > this.capacite ){ return false; }
 			this.carburant += volume;
+			return true;
+		}
+		
+		public boolean consommerCarburant( double volume )
+		{
+			if( volume < 0 || (this.carburant-volume) < 0 ){ return false; }
+			this.carburant -= volume;
 			return true;
 		}
 

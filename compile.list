@@ -8,20 +8,16 @@ src/deskastre/modele/entite/AbstractEntite.java
 src/deskastre/modele/entite/Entite.java
 src/deskastre/modele/entite/Asteroide.java
 src/deskastre/modele/entite/Vaisseau.java
-src/deskastre/modele/entite/OutilsImage.java
 src/deskastre/modele/entite/Statistique.java
+
+src/deskastre/modele/outil/OutilsImage.java
+src/deskastre/modele/outil/Range.java
 
 src/deskastre/modele/entite/propriete/IAttaque.java
 src/deskastre/modele/entite/propriete/IControlable.java
 src/deskastre/modele/entite/propriete/IDeplacable.java
 src/deskastre/modele/entite/propriete/IDestructible.java
 src/deskastre/modele/entite/propriete/IInteraction.java
-
-src/deskastre/modele/entite/regles/AbstractRegles.java
-src/deskastre/modele/entite/regles/ReglesAsteroide.java
-
-src/deskastre/modele/niveau/AbstractNiveau.java
-src/deskastre/modele/niveau/Niveau1.java
 
 src/deskastre/modele/joueur/IInformation.java
 src/deskastre/modele/joueur/Joueur.java

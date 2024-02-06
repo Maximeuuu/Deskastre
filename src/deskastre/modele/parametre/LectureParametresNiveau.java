@@ -34,6 +34,4 @@ public class LectureParametresNiveau extends AbstractLectureParametres
 
 		return parametresNiveau;
 	}
-
-	private 
 }
