@@ -19,6 +19,10 @@ src/deskastre/modele/entite/propriete/IDeplacable.java
 src/deskastre/modele/entite/propriete/IDestructible.java
 src/deskastre/modele/entite/propriete/IInteraction.java
 
+src/deskastre/modele/parametre/AbstractLectureParametres.java
+src/deskastre/modele/parametre/LectureParametresAsteroide.java
+src/deskastre/modele/parametre/ParametresAsteroide.java
+
 src/deskastre/modele/joueur/IInformation.java
 src/deskastre/modele/joueur/Joueur.java
 

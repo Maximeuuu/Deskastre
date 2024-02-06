@@ -22,11 +22,16 @@ public abstract class AbstractEntite extends Point2D.Double
 		this.visibilite = true;
 	}
 
-	public boolean estPlaceDans( Shape figure )
+	public boolean estPlaceDans( Shape figure ) //FIXME: problème de coordonnees
 	{
 		boolean contientOrigine = (figure.contains( super.getX(), super.getY() )                                                      );
-		boolean contientObjet   = (figure.contains( super.getX()+this.dimension.getWidth(), super.getY()+this.dimension.getHeight() ) );
-		return (contientOrigine || contientObjet);
+		boolean contientObjet1  = (figure.contains( super.getX()+this.dimension.getWidth(), super.getY()+this.dimension.getHeight() ) );
+		boolean contientObjet2  = (figure.contains( super.getX()+this.dimension.getWidth(), super.getY()+this.dimension.getHeight() ) );
+		
+		System.out.println ( "contientObjet1 : " + contientObjet1 );
+		System.out.println ( "contientObjet2 : " + contientObjet2 );
+		
+		return (contientOrigine || contientObjet1 || contientObjet2 );
 	}
 
 	public void setVisibilite( boolean visibilite ){ this.visibilite = visibilite; }

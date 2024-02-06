@@ -18,7 +18,6 @@ public class AbstractLectureParametres
 	
 	public AbstractLectureParametres( String cheminFichier )
 	{
-		//FIXME: ajouter le chemin relatif du projet avant avec URL
 		try
 		{
 			URL url = AbstractLectureParametres.class.getResource( cheminFichier );

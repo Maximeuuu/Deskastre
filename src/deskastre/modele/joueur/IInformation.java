@@ -6,4 +6,5 @@ package deskastre.modele.joueur;
  */
 public interface IInformation
 {
+	@Override public String toString();
 }

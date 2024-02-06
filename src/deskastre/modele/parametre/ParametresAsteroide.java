@@ -4,9 +4,13 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
+import java.awt.Polygon;
 
 import deskastre.modele.entite.Asteroide;
 import deskastre.modele.outil.Range;
+import deskastre.modele.outil.OutilsImage;
+import deskastre.VariablesUtilisateur;
 
 /**
  * Classe principale pour les propriétés des entites
@@ -16,7 +20,7 @@ import deskastre.modele.outil.Range;
 public class ParametresAsteroide
 {
 	//images
-	private List<String> ensCheminImage;
+	private List<String> ensNomImage;
 
 	//repartition
 	private Range rangePosX;
@@ -30,26 +34,31 @@ public class ParametresAsteroide
 	{
 		Point position = new Point( (int)this.rangePosX.genererValeur(), (int)this.rangePosY.genererValeur() );
 		Dimension dimension = new Dimension(70*4,70*4);
-		String image = "objets/asteroide_4.png"; //this.ensCheminImage.get(0)
+		
+		//FIXME: mettre un tirage aléatoire de l'indice de l'image
+		ImageIcon image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + VariablesUtilisateur.REP_OBJETS + this.ensNomImage.get(0) );
+		Polygon masque = OutilsImage.getMasqueImage( image );
 		double velociteX = this.rangeVx.genererValeur();
 		double velociteY = this.rangeVy.genererValeur();
 		int pvMax = (int)this.rangePv.genererValeur();
+		int loot  = (int)this.rangeLoot.genererValeur();
 
-		return new Asteroide( position, dimension, image, velociteX, velociteY, pvMax );
+		return new Asteroide( position, image, masque, velociteX, velociteY, pvMax, loot );
 	}
 
 	//constructeur
 	public ParametresAsteroide()
 	{
-		this.ensCheminImage = new ArrayList<>();
+		this.ensNomImage = new ArrayList<>();
 	}
 
 	public List<String> getEnsCheminImage() {
-		return ensCheminImage;
+		return ensNomImage;
 	}
 
-	public void setEnsCheminImage(List<String> ensCheminImage) {
-		this.ensCheminImage = ensCheminImage;
+	//TODO: renommer en setEnsNomImage
+	public void setEnsCheminImage(List<String> ensNomImage) {
+		this.ensNomImage = ensNomImage;
 	}
 
 	public Range getRangePosX() {
@@ -102,7 +111,7 @@ public class ParametresAsteroide
 
 	public String toString()
 	{
-		return "ParametresAsteroide [ensCheminImage=" + ensCheminImage + ", rangePosX=" + rangePosX + ", rangePosY="
+		return "ParametresAsteroide [ensCheminImage=" + ensNomImage + ", rangePosX=" + rangePosX + ", rangePosY="
 				+ rangePosY + ", rangeVx=" + rangeVx + ", rangeVy=" + rangeVy + ", rangePv=" + rangePv + ", rangeLoot="
 				+ rangeLoot + "]";
 	}

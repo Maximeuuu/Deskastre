@@ -5,6 +5,7 @@ import deskastre.modele.entite.*;
 import deskastre.modele.entite.propriete.*;
 import deskastre.modele.joueur.*;
 import deskastre.modele.outil.OutilsImage;
+import deskastre.modele.parametre.*;
 
 import java.util.List;
 import java.util.Collections;
@@ -24,6 +25,10 @@ public class Jeu
 	private List<AbstractEntite> ensEntite;
 	private Joueur statsJoueur;
 	private double tempsDebut;
+	
+	//TODO: à remplacer par le ParametresNiveau
+	private ParametresAsteroide pa1;
+	private ParametresAsteroide pa2;
 
 	public Jeu()
 	{
@@ -47,8 +52,21 @@ public class Jeu
 		masque = OutilsImage.getMasqueImage( image );
 		entite = new Vaisseau( new Point( (int)(Constantes.DIMENSIONS_JEU.getWidth()-700)/2, (int)(Constantes.DIMENSIONS_JEU.getHeight()-500)/2), image, masque , 5);
 		this.ensEntite.add( entite );
+		
+		LectureParametresAsteroide lpa;
+		lpa = new LectureParametresAsteroide("/data/configurations/asteroides/astV.xml");
+		this.pa1 = lpa.getParametresAsteroide();
+		
+		lpa = new LectureParametresAsteroide("/data/configurations/asteroides/astH.xml");
+		this.pa2 = lpa.getParametresAsteroide();
 
-		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + VariablesUtilisateur.REP_OBJETS + "asteroide_1.png" );
+		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + VariablesUtilisateur.REP_OBJETS + "asteroide_5.png" );
+		masque = OutilsImage.getMasqueImage( image );
+		entite = new Asteroide( new Point(0,1079), image, masque ); //FIXME: décallage vertical de 70px (taille de l'image)
+		((Asteroide)entite).setVelocite(0,0);
+		this.ensEntite.add( entite );
+
+		/*image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + VariablesUtilisateur.REP_OBJETS + "asteroide_1.png" );
 		masque = OutilsImage.getMasqueImage( image );
 		entite = new Asteroide( new Point(800,100), image, masque );
 		((Asteroide)entite).setVelocite(0,1);
@@ -91,7 +109,7 @@ public class Jeu
 		masque = OutilsImage.getMasqueImage( image );
 		entite = new Asteroide( new Point( (int)(Constantes.DIMENSIONS_JEU.getWidth())-200, (int)(Constantes.DIMENSIONS_JEU.getHeight())-200 ), image, masque );
 		((Asteroide)entite).setVelocite(0,0);
-		this.ensEntite.add( entite );
+		this.ensEntite.add( entite );*/
 	}
 
 	public void actualiser()
@@ -108,7 +126,9 @@ public class Jeu
 				{
 					double timefin = System.nanoTime();
 					System.out.println("Destruction d'une entite à "+(timefin - this.tempsDebut)/1_000_000_000.0);
-					this.ensEntite.remove( indice );
+					
+					if( indice < this.ensEntite.size() ) //important car les listes peuvent être modifiées en cours de route
+						this.ensEntite.remove( indice );
 				}
 			}
 
@@ -132,7 +152,19 @@ public class Jeu
 			indice++;
 		}
 		
-		
+		//TODO: à gérer plutot avec un parametreNiveau
+		if( (int)(Math.random()*80) == 1 )
+		{
+			/*if( (int)(Math.random()*2) == 1 )
+			{
+				this.ensEntite.add( pa1.creerAsteroide() );
+			}
+			else
+			{
+				this.ensEntite.add( pa2.creerAsteroide() );
+			}*/
+		}
+			
 	}
 
 	public boolean entiteIsVisibleOnScreen( AbstractEntite entite )
