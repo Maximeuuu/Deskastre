@@ -1,8 +1,8 @@
 package deskastre.modele.entite;
 
 import javax.swing.ImageIcon;
-import java.awt.Point;
 import java.awt.Dimension;
+import java.awt.Point;
 
 /**
  * Objet simple du jeu
@@ -18,16 +18,20 @@ public class Entite extends AbstractEntite
 	private ImageIcon image;
 	private int direction; //angle en degres -> probablement à supprimer
 
-	public Entite( Point position, ImageIcon image )
+	public Entite( Point centre, ImageIcon image )
 	{
-		super( position, new Dimension( image.getIconWidth(), image.getIconHeight() ) );
+		super( centre, new Dimension( image.getIconWidth(), image.getIconHeight() ) );
 
 		this.image = image;
 		this.direction = Entite.NORTH;
 	}
 
 	//public void setImage( String image ){ this.image = new ImageIcon(VariablesUtilisateur.REP_IMAGE+image); }
-	public void setImage( ImageIcon image ){ this.image = image; }
+	public void setImage( ImageIcon image )
+	{
+		super.setDimension( new Dimension( image.getIconWidth(), image.getIconHeight() ) );
+		this.image = image;
+	}
 	public void setDirection( int direction ){ this.direction = direction%360; }
 
 	public ImageIcon getImage(){ return this.image; }

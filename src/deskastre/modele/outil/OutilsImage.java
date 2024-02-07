@@ -47,6 +47,10 @@ public final class OutilsImage
 		BufferedImage bImage = new BufferedImage(icone.getIconWidth(), icone.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
 		Graphics2D    bGr = bImage.createGraphics();
 
+		// c'est parece qu'on gere les images par rapport à leur centre
+		int mediatriceL = icone.getIconWidth()/2;
+		int mediatriceH = icone.getIconHeight()/2;
+
 		bGr.drawImage(icone.getImage(), 0, 0, null);
 		bGr.dispose();
 
@@ -57,7 +61,7 @@ public final class OutilsImage
 			{
 				if ( bImage.getRGB( x, y ) != 0 )
 				{
-					polygone.addPoint( x, y );
+					polygone.addPoint( x-mediatriceL, y-mediatriceH );
 					break;
 				}
 			}
@@ -69,7 +73,7 @@ public final class OutilsImage
 			{
 				if ( bImage.getRGB( x, y ) != 0 )
 				{
-					polygone.addPoint( x, y );
+					polygone.addPoint( x-mediatriceL, y-mediatriceH );
 					break;
 				}
 			}

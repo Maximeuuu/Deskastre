@@ -8,6 +8,8 @@ import deskastre.modele.entite.Statistique;
 import java.util.List;
 
 import javax.swing.*;
+import javax.swing.text.html.parser.Element;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -63,11 +65,23 @@ public class PanelJeu extends JPanel implements MouseListener
 
 			if( element instanceof Entite )
 			{
-				g2.drawImage( ((Entite)(element)).getImage().getImage(), (int)element.getX(), (int)element.getY(), this );
+				Entite entite = (Entite)element;
+				ImageIcon imageIcon = entite.getImage();
+				g2.drawImage( imageIcon.getImage(), PanelJeu.getCentreX(entite, imageIcon), PanelJeu.getCentreY(entite, imageIcon), this );
 			}
 		}
 
 		g2.dispose();
+	}
+
+	private static int getCentreX( Entite entite, ImageIcon image )
+	{
+		return (int) (entite.getX() - image.getIconWidth()/2);
+	}
+
+	private static int getCentreY( Entite entite, ImageIcon image )
+	{
+		return (int) (entite.getY() - image.getIconHeight()/2);
 	}
 
 	private static void drawStatistique( Statistique stat, Graphics2D g2 )
