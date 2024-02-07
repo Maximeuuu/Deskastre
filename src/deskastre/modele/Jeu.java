@@ -50,7 +50,7 @@ public class Jeu
 
 		image = OutilsImage.getResizeImage( new Dimension((int)(128*4*1.5),128*4), VariablesUtilisateur.REP_IMAGE + VariablesUtilisateur.REP_VAISSEAUX + "vaisseau_3_armed.png" );
 		masque = OutilsImage.getMasqueImage( image );
-		entite = new Vaisseau( new Point( (int)(Constantes.DIMENSIONS_JEU.getWidth()-700)/2, (int)(Constantes.DIMENSIONS_JEU.getHeight()-500)/2), image, masque , 5);
+		entite = new Vaisseau( new Point( (int)(Constantes.DIMENSIONS_JEU.getWidth())/2, (int)(Constantes.DIMENSIONS_JEU.getHeight())/2), image, masque , 5);
 		this.ensEntite.add( entite );
 		
 		LectureParametresAsteroide lpa;
@@ -59,14 +59,48 @@ public class Jeu
 		
 		lpa = new LectureParametresAsteroide("/data/configurations/asteroides/astH.xml");
 		this.pa2 = lpa.getParametresAsteroide();
+	}
+	
+	//TEST
+	private void initialiserAsteroidesCoins()
+	{
+		ImageIcon image;
+		Polygon masque;
+		AbstractEntite entite;
 
 		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + VariablesUtilisateur.REP_OBJETS + "asteroide_5.png" );
 		masque = OutilsImage.getMasqueImage( image );
-		entite = new Asteroide( new Point(0,1079), image, masque ); //FIXME: décallage vertical de 70px (taille de l'image)
+		entite = new Asteroide( new Point(0,0), image, masque );
 		((Asteroide)entite).setVelocite(0,0);
 		this.ensEntite.add( entite );
 
-		/*image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + VariablesUtilisateur.REP_OBJETS + "asteroide_1.png" );
+		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + VariablesUtilisateur.REP_OBJETS + "asteroide_5.png" );
+		masque = OutilsImage.getMasqueImage( image );
+		entite = new Asteroide( new Point(0,1080), image, masque );
+		((Asteroide)entite).setVelocite(0,0);
+		this.ensEntite.add( entite );
+
+		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + VariablesUtilisateur.REP_OBJETS + "asteroide_5.png" );
+		masque = OutilsImage.getMasqueImage( image );
+		entite = new Asteroide( new Point(1920,0), image, masque );
+		((Asteroide)entite).setVelocite(0,0);
+		this.ensEntite.add( entite );
+
+		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + VariablesUtilisateur.REP_OBJETS + "asteroide_5.png" );
+		masque = OutilsImage.getMasqueImage( image );
+		entite = new Asteroide( new Point(1920,1080), image, masque );
+		((Asteroide)entite).setVelocite(0,0);
+		this.ensEntite.add( entite );
+	}
+
+	//TEST
+	private void initialiserAsteroidesPregeneres()
+	{
+		ImageIcon image;
+		Polygon masque;
+		AbstractEntite entite;
+
+		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + VariablesUtilisateur.REP_OBJETS + "asteroide_1.png" );
 		masque = OutilsImage.getMasqueImage( image );
 		entite = new Asteroide( new Point(800,100), image, masque );
 		((Asteroide)entite).setVelocite(0,1);
@@ -102,14 +136,11 @@ public class Jeu
 		((Asteroide)entite).setVelocite(0,0);
 		this.ensEntite.add( entite );
 
-		//System.out.println( (new Point2D.Double(0,0)).equals(new Point2D.Double(0,0)) );
-		//System.out.println( new Joueur().hashCode() );
-
 		image = OutilsImage.getResizeImage( new Dimension(70*4,70*4), VariablesUtilisateur.REP_IMAGE + VariablesUtilisateur.REP_OBJETS + "asteroide_4.png" );
 		masque = OutilsImage.getMasqueImage( image );
 		entite = new Asteroide( new Point( (int)(Constantes.DIMENSIONS_JEU.getWidth())-200, (int)(Constantes.DIMENSIONS_JEU.getHeight())-200 ), image, masque );
 		((Asteroide)entite).setVelocite(0,0);
-		this.ensEntite.add( entite );*/
+		this.ensEntite.add( entite );
 	}
 
 	public void actualiser()
@@ -155,14 +186,14 @@ public class Jeu
 		//TODO: à gérer plutot avec un parametreNiveau
 		if( (int)(Math.random()*80) == 1 )
 		{
-			/*if( (int)(Math.random()*2) == 1 )
+			if( (int)(Math.random()*2) == 1 )
 			{
 				this.ensEntite.add( pa1.creerAsteroide() );
 			}
 			else
 			{
 				this.ensEntite.add( pa2.creerAsteroide() );
-			}*/
+			}
 		}
 			
 	}
