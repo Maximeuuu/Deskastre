@@ -76,8 +76,6 @@ public final class ConfigurationMaterielle
 		//mise à l'échelle
 		this.echelle[0] = screenWidthReel / (double)RESOLUTION_DEFAUT.getWidth() ; //screenWidth / ((double)(ConfigurationMaterielle.RESOLUTION_DEFAUT.getWidth()) * this.dpi );
 		this.echelle[1] = screenHeightReel / (double)RESOLUTION_DEFAUT.getHeight(); //screenHeight / ((double)(ConfigurationMaterielle.RESOLUTION_DEFAUT.getHeight()) * this.dpi );
-
-		System.out.println( this.toString() );
 	}
 
 	public int getNumeroEcran(){ return this.numEcran; }

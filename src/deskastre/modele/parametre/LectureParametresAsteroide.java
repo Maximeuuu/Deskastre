@@ -53,8 +53,7 @@ public class LectureParametresAsteroide extends AbstractLectureParametres
 		
 		double min = valeurReference * Double.parseDouble( attributs.getNamedItem("min").getNodeValue() ) / 100.0;
 		double max = valeurReference * Double.parseDouble( attributs.getNamedItem("max").getNodeValue() ) / 100.0;
-		System.out.println( min + " - " + max );
-		
+
 		return Range.creerRange( min, max );
 	}
 
@@ -67,18 +66,5 @@ public class LectureParametresAsteroide extends AbstractLectureParametres
 		double max = Double.parseDouble( attributs.getNamedItem("max").getNodeValue() );
 		
 		return Range.creerRange( min, max );
-	}
-
-	public static void main(String[] args)
-	{
-		LectureParametresAsteroide lpa = new LectureParametresAsteroide("/data/asteroides/ast1.xml");
-		ParametresAsteroide pa = lpa.getParametresAsteroide();
-		System.out.println(pa);
-		
-		Asteroide a1 = pa.creerAsteroide();
-		System.out.println(a1);
-
-		Asteroide a2 = pa.creerAsteroide();
-		System.out.println(a2);
 	}
 }
