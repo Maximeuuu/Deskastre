@@ -24,7 +24,7 @@ public class LectureParametresAsteroide extends AbstractLectureParametres
 
 		pa.setEnsCheminImage( this.getImages( super.racine.getElementsByTagName( "image" ) ) );
 
-		pa.setRangePosX( this.getRangePourcentage( "posX", Constantes.DIMENSIONS_JEU.width ) ); //FIXME: les données sont stockées en pourcentages mais utilisées en pixel
+		pa.setRangePosX( this.getRangePourcentage( "posX", Constantes.DIMENSIONS_JEU.width ) );
 		pa.setRangePosY( this.getRangePourcentage( "posY", Constantes.DIMENSIONS_JEU.height ) );
 		pa.setRangeVx( this.getRange( "vx" ) );
 		pa.setRangeVy( this.getRange( "vy" ) );
